@@ -2,5 +2,4 @@ node_modules
 *.ldjson
 build
 out*
-data
-data_parking
+data*
