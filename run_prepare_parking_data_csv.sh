@@ -1,10 +1,11 @@
 #! /bin/bash
 
+#########################################################################
+# This script generates dataenter datasets in CSV format
+#########################################################################
+
 TYPES=("type-b" "type-e" "type-r" "type-be" "type-br" "type-er" "type-ber")
 SOURCES=("complex" "moderate" "simple" "single")
-
-# TYPES=("type-ber")
-# SOURCES=("complex")
 
 for TYPE in "${TYPES[@]}"
 do
@@ -40,18 +41,6 @@ do
             -o $DIR/$SOURCE.$TYPE.csv \
             --skip_timestamp --normalize_hours
     done
-done
-
-echo "Printing final file sizes:"
-for FILE in $(find data_parking/csv -name '*.csv'); do
-    ANOMS=$(grep anomaly $FILE | wc -l)
-    LINES=$(wc -l $FILE)
-    echo "$FILE lines=$LINES anomalies=$ANOMS"
-done
-for FILE in $(find data_parking/csv_normalized_hours -name '*.csv'); do
-    ANOMS=$(grep anomaly $FILE | wc -l)
-    LINES=$(wc -l $FILE)
-    echo "$FILE lines=$LINES anomalies=$ANOMS"
 done
 
 echo "Finished."

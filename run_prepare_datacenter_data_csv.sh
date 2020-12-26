@@ -1,10 +1,11 @@
 #! /bin/bash
 
+#########################################################################
+# This script generates parking-lot datasets in CSV format
+#########################################################################
+
 TYPES=("type1" "type2" "type3" "type12" "type13" "type23" "type123")
 SOURCES=("complex" "moderate" "simple" "single")
-
-# TYPES=("type123")
-# SOURCES=("single")
 
 for TYPE in "${TYPES[@]}"
 do
@@ -40,15 +41,4 @@ do
     done
 done
 
-echo "Printing final file sizes:"
-for FILE in $(find data/csv -name '*.csv'); do
-    ANOMS=$(grep anomaly $FILE | wc -l)
-    LINES=$(wc -l $FILE)
-    echo "$FILE lines=$LINES anomalies=$ANOMS"
-done
-for FILE in $(find data/csv_normalized_hours -name '*.csv'); do
-    ANOMS=$(grep anomaly $FILE | wc -l)
-    LINES=$(wc -l $FILE)
-    echo "$FILE lines=$LINES anomalies=$ANOMS"
-done
 echo "Finished."

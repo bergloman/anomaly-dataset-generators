@@ -15,7 +15,6 @@ if (!argv.f) {
 }
 argv.t = argv.t || "ldjson";
 const skip_timestamp = (!!argv.skip_timestamp);
-const write_hours = (!!argv.include_hours);
 const normalize_hours = (!!argv.normalize_hours);
 
 let output: w.OutputFunc = (line: string) => console.log(line);
@@ -69,22 +68,5 @@ if (normalize_hours) {
     }
 }
 
-if (write_hours) {
-    // inject hour bits if needed
-    data2.forEach(x => {
-        const h = x.ts.getHours();
-        for (let i = 0; i < 24; i++) {
-            x.values["h_" + i] = (i == h ? 1 : 0);
-        }
-    });
-}
-
-if (argv.t == "csv") {
-    const writer = new w.WriterCsvCombined(output, !skip_timestamp);
-    data2.forEach(x => writer.addRec(x));
-} else {
-    const writer: w.IWriter = new w.WriterLdjson(output);
-    data2.forEach(x => writer.addRec(x));
-    writer.finalize();
-}
-
+const writer = new w.WriterCsvCombined(output, !skip_timestamp);
+data2.forEach(x => writer.addRec(x));
