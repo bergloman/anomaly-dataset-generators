@@ -6,38 +6,31 @@
 
 TYPES=("type1" "type2" "type3" "type12" "type13" "type23" "type123")
 SOURCES=("complex" "moderate" "simple" "single")
+NORMALIZE_TAGS=("yes" "no")
+GENERATOR="datacenter"
+NORMALIZE=""
 
-for TYPE in "${TYPES[@]}"
+for NORMALIZE_TAG in "${NORMALIZE_TAGS[@]}"
 do
-    DIR=data/csv/$TYPE
-    mkdir -p $DIR
-
-    for SOURCE in "${SOURCES[@]}"
+    for TYPE in "${TYPES[@]}"
     do
-        rm $DIR/$SOURCE.$TYPE.csv
-        echo "Preparing $SOURCE $TYPE csv file"
-        node build/main.js \
-            --skip_timestamp \
-            -t csv \
-            -f params/$TYPE/params.$SOURCE.$TYPE.json \
-            -o $DIR/$SOURCE.$TYPE.csv
-    done
-done
-
-for TYPE in "${TYPES[@]}"
-do
-    DIR=data/csv_normalized_hours/$TYPE
-    mkdir -p $DIR
-
-    for SOURCE in "${SOURCES[@]}"
-    do
-        rm $DIR/$SOURCE.$TYPE.csv
-        echo "Preparing $SOURCE $TYPE csv file"
-        node build/main.js \
-            --skip_timestamp \
-            -t csv \
-            -f params/$TYPE/params.$SOURCE.$TYPE.json \
-            -o $DIR/$SOURCE.$TYPE.csv --normalize_hours
+        NORMALIZE=""
+        DIR_POSTFIX=""
+        if [ $NORMALIZE_TAG == "yes" ]; then NORMALIZE="--normalize_hours"; fi
+        if [ $NORMALIZE_TAG == "yes" ]; then DIR_POSTFIX="_normalized_hours"; fi
+        DIR=data_$GENERATOR/csv$DIR_POSTFIX/$TYPE
+        mkdir -p $DIR
+        for SOURCE in "${SOURCES[@]}"
+        do
+            rm -rf $DIR/$SOURCE.$TYPE.csv*
+            echo "Preparing $GENERATOR $SOURCE $TYPE $NORMALIZE csv file"
+            node build/main.js \
+                --generator $GENERATOR \
+                -t csv \
+                -f params/$TYPE/params.$SOURCE.$TYPE.json \
+                -o $DIR/$SOURCE.$TYPE.csv \
+                $NORMALIZE
+        done
     done
 done
 

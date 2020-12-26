@@ -1,45 +1,36 @@
 #! /bin/bash
 
 #########################################################################
-# This script generates dataenter datasets in CSV format
+# This script generates datacenter datasets in CSV format
 #########################################################################
 
 TYPES=("type-b" "type-e" "type-r" "type-be" "type-br" "type-er" "type-ber")
 SOURCES=("complex" "moderate" "simple" "single")
+NORMALIZE_TAGS=("yes" "no")
+GENERATOR="parking"
+NORMALIZE=""
 
-for TYPE in "${TYPES[@]}"
+for NORMALIZE_TAG in "${NORMALIZE_TAGS[@]}"
 do
-    DIR=data_parking/csv/$TYPE
-    mkdir -p $DIR
-
-    for SOURCE in "${SOURCES[@]}"
+    for TYPE in "${TYPES[@]}"
     do
-        rm $DIR/$SOURCE.$TYPE.csv*
-        echo "Preparing $SOURCE $TYPE csv file"
-        node build/main.js \
-            --generator parking \
-            -t csv \
-            -f params_parking/$TYPE/params.$SOURCE.$TYPE.json \
-            -o $DIR/$SOURCE.$TYPE.csv \
-            --skip_timestamp
-    done
-done
-
-for TYPE in "${TYPES[@]}"
-do
-    DIR=data_parking/csv_normalized_hours/$TYPE
-    mkdir -p $DIR
-
-    for SOURCE in "${SOURCES[@]}"
-    do
-        rm $DIR/$SOURCE.$TYPE.csv*
-        echo "Preparing $SOURCE $TYPE csv file"
-        node build/main.js \
-            --generator parking \
-            -t csv \
-            -f params_parking/$TYPE/params.$SOURCE.$TYPE.json \
-            -o $DIR/$SOURCE.$TYPE.csv \
-            --skip_timestamp --normalize_hours
+        NORMALIZE=""
+        DIR_POSTFIX=""
+        if [ $NORMALIZE_TAG == "yes" ]; then NORMALIZE="--normalize_hours"; fi
+        if [ $NORMALIZE_TAG == "yes" ]; then DIR_POSTFIX="_normalized_hours"; fi
+        DIR=data_$GENERATOR/csv$DIR_POSTFIX/$TYPE
+        mkdir -p $DIR
+        for SOURCE in "${SOURCES[@]}"
+        do
+            rm -rf $DIR/$SOURCE.$TYPE.csv*
+            echo "Preparing $GENERATOR $SOURCE $TYPE $NORMALIZE csv file"
+            node build/main.js \
+                --generator $GENERATOR \
+                -t csv \
+                -f params/$TYPE/params.$SOURCE.$TYPE.json \
+                -o $DIR/$SOURCE.$TYPE.csv \
+                $NORMALIZE
+        done
     done
 done
 
