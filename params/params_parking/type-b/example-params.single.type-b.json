@@ -1,0 +1,24 @@
+{
+    "general": {
+        "grid": { "x": 1, "y": 1 },
+        "from": "2020-01-01T00:00:00",
+        "to": "2021-01-01T00:00:00"
+    },
+    "parking_lots": [
+        { "id": 1, "capacity": 20, "x": 0, "y": 0 }
+    ],
+    "profiles": [
+        {
+            "id": 1,
+            "start": { "type": "gauss", "mean": 8, "std_dev": 0.3 },
+            "duration": { "type": "gauss", "mean": 8, "std_dev": 1 },
+            "target": { "type": "point", "x": 0, "y": 0 },
+            "count": 15
+        }
+    ],
+    "disruptions": [
+        { "tag": "type-b", "from": "2021-01-01T00:00:00", "to": "2021-01-01T00:00:00", "x": 0, "y": 0 },
+        { "tag": "type-e", "from": "2021-01-01T00:00:00", "to": "2021-01-01T00:00:00", "x": 0, "y": 0, "count": 30 },
+        { "tag": "type-r", "from": "2021-01-01T00:00:00", "to": "2021-01-01T00:00:00", "parking_lot_id": 0 }
+    ]
+}

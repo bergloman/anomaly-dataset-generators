@@ -1,0 +1,270 @@
+{
+    "services": [
+        {
+            "name": "serviceA",
+            "error_rate": 0.0001,
+            "durations": [
+                {
+                    "type": "gauss",
+                    "avg": 1000,
+                    "variance": 50,
+                    "min_ts": "2016-12-30T23:00:00.000Z",
+                    "max_ts": "2018-01-01T23:00:00.000Z"
+                }
+            ],
+            "deps": [
+                {
+                    "dest": "serviceC",
+                    "type": "uniform",
+                    "min": 1,
+                    "max": 3
+                }
+            ]
+        },
+        {
+            "name": "serviceB",
+            "error_rate": 0.0001,
+            "durations": [
+                {
+                    "type": "gauss",
+                    "avg": 1000,
+                    "variance": 200,
+                    "min_ts": "2016-12-30T23:00:00.000Z",
+                    "max_ts": "2018-01-01T23:00:00.000Z"
+                }
+            ],
+            "deps": [
+                {
+                    "dest": "serviceC",
+                    "type": "uniform",
+                    "min": 1,
+                    "max": 2
+                },
+                {
+                    "dest": "serviceD",
+                    "type": "uniform",
+                    "min": 0,
+                    "max": 1
+                }
+            ]
+        },
+        {
+            "name": "serviceC",
+            "error_rate": 0.0001,
+            "durations": [
+                {
+                    "type": "gauss",
+                    "avg": 600,
+                    "variance": 50,
+                    "min_ts": "2016-12-30T23:00:00.000Z",
+                    "max_ts": "2018-01-01T23:00:00.000Z"
+                }
+            ]
+        },
+        {
+            "name": "serviceD",
+            "error_rate": 0.0001,
+            "durations": [
+                {
+                    "type": "gauss",
+                    "avg": 500,
+                    "variance": 100,
+                    "min_ts": "2016-12-30T23:00:00.000Z",
+                    "max_ts": "2018-01-01T23:00:00.000Z"
+                }
+            ]
+        }
+    ],
+    "service_calls": [
+        {
+            "service": "serviceA",
+            "type": "const",
+            "active": [
+                8,
+                17
+            ],
+            "weekend": false,
+            "low": 600,
+            "high": 10800,
+            "noise": 0.1
+        },
+        {
+            "service": "serviceB",
+            "type": "daily",
+            "peak": 14,
+            "low": 0,
+            "high": 2000,
+            "noise": 0.01
+        }
+    ],
+    "servers": [
+        {
+            "name": "srvr1",
+            "services": [
+                "serviceA",
+                "serviceB"
+            ]
+        },
+        {
+            "name": "srvr2",
+            "services": [
+                "serviceA",
+                "serviceC"
+            ]
+        },
+        {
+            "name": "srvr3",
+            "services": [
+                "serviceA",
+                "serviceB"
+            ]
+        },
+        {
+            "name": "srvr4",
+            "services": [
+                "serviceB",
+                "serviceC",
+                "serviceD"
+            ]
+        }
+    ],
+    "general": {
+        "from": "2017-01-01T00:00:00",
+        "to": "2018-01-01T00:00:00"
+    },
+    "disruptions": [
+        {
+            "tag": "type3",
+            "from": "2017-01-31T14:27:30.761Z",
+            "to": "2017-02-04T22:19:12.863Z",
+            "services": [
+                "serviceA"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 1100,
+                "max": 10000,
+                "variance": 20,
+                "min_ts": "2017-01-31T14:27:30.761Z",
+                "max_ts": "2017-02-04T22:19:12.863Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-03-15T18:28:55.022Z",
+            "to": "2017-03-18T16:47:18.842Z",
+            "services": [
+                "serviceD",
+                "serviceC"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 660,
+                "max": 6000,
+                "variance": 20,
+                "min_ts": "2017-03-15T18:28:55.022Z",
+                "max_ts": "2017-03-18T16:47:18.842Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-04-27T16:37:07.310Z",
+            "to": "2017-04-29T23:31:18.033Z",
+            "services": [
+                "serviceB"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 1100,
+                "max": 10000,
+                "variance": 20,
+                "min_ts": "2017-04-27T16:37:07.310Z",
+                "max_ts": "2017-04-29T23:31:18.033Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-06-06T20:26:52.404Z",
+            "to": "2017-06-10T10:26:51.598Z",
+            "services": [
+                "serviceB",
+                "serviceA"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 1100,
+                "max": 10000,
+                "variance": 20,
+                "min_ts": "2017-06-06T20:26:52.404Z",
+                "max_ts": "2017-06-10T10:26:51.598Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-07-18T19:53:54.287Z",
+            "to": "2017-07-23T01:37:20.625Z",
+            "services": [
+                "serviceC",
+                "serviceB"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 1100,
+                "max": 10000,
+                "variance": 20,
+                "min_ts": "2017-07-18T19:53:54.287Z",
+                "max_ts": "2017-07-23T01:37:20.625Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-08-30T00:57:55.341Z",
+            "to": "2017-09-03T04:17:21.615Z",
+            "services": [
+                "serviceA"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 1100,
+                "max": 10000,
+                "variance": 20,
+                "min_ts": "2017-08-30T00:57:55.341Z",
+                "max_ts": "2017-09-03T04:17:21.615Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-10-10T19:35:19.632Z",
+            "to": "2017-10-15T15:43:30.604Z",
+            "services": [
+                "serviceA",
+                "serviceB"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 1100,
+                "max": 10000,
+                "variance": 20,
+                "min_ts": "2017-10-10T19:35:19.632Z",
+                "max_ts": "2017-10-15T15:43:30.604Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-11-20T02:22:52.554Z",
+            "to": "2017-11-23T11:04:51.816Z",
+            "services": [
+                "serviceC",
+                "serviceD"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 660,
+                "max": 6000,
+                "variance": 20,
+                "min_ts": "2017-11-20T02:22:52.554Z",
+                "max_ts": "2017-11-23T11:04:51.816Z"
+            }
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "services": [
+        {
+            "name": "serviceA",
+            "error_rate": 0.0001,
+            "durations": [{ "type": "gauss", "avg": 1000, "variance": 50 }],
+            "deps": []
+        }
+    ],
+    "service_calls": [
+        {
+            "service": "serviceA",
+            "type": "const",
+            "active": [8, 17],
+            "weekend": false,
+            "low": 100,
+            "high": 5000,
+            "noise": 0.1
+        }
+    ],
+    "servers": [
+        {
+            "name": "srvr1",
+            "services": ["serviceA"]
+        }
+    ]
+}

@@ -1,0 +1,209 @@
+{
+    "services": [
+        {
+            "name": "serviceA",
+            "error_rate": 0.0001,
+            "durations": [
+                {
+                    "type": "gauss",
+                    "avg": 1000,
+                    "variance": 50,
+                    "min_ts": "2016-12-30T23:00:00.000Z",
+                    "max_ts": "2018-01-01T23:00:00.000Z"
+                }
+            ],
+            "deps": []
+        }
+    ],
+    "service_calls": [
+        {
+            "service": "serviceA",
+            "type": "const",
+            "active": [
+                8,
+                17
+            ],
+            "weekend": false,
+            "low": 100,
+            "high": 5000,
+            "noise": 0.1
+        }
+    ],
+    "servers": [
+        {
+            "name": "srvr1",
+            "services": [
+                "serviceA"
+            ]
+        }
+    ],
+    "general": {
+        "from": "2017-01-01T00:00:00",
+        "to": "2018-01-01T00:00:00"
+    },
+    "disruptions": [
+        {
+            "tag": "type1",
+            "from": "2017-01-31T20:48:33.964Z",
+            "to": "2017-01-31T21:27:54.662Z",
+            "error_rate": 0.5,
+            "servers": [
+                "srvr1"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-02-24T03:43:55.847Z",
+            "to": "2017-02-24T04:17:05.138Z",
+            "error_rate": 0.5,
+            "servers": [
+                "srvr1"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-03-19T09:47:59.719Z",
+            "to": "2017-03-19T10:09:06.419Z",
+            "duration": {
+                "type": "gauss",
+                "avg": 10000,
+                "variance": 100
+            },
+            "servers": [
+                "srvr1"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-04-08T13:20:44.983Z",
+            "to": "2017-04-08T13:38:14.261Z",
+            "duration": {
+                "type": "gauss",
+                "avg": 10000,
+                "variance": 100
+            },
+            "services": [
+                "serviceA"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-05-03T06:37:59.862Z",
+            "to": "2017-05-03T06:55:32.920Z",
+            "duration": {
+                "type": "gauss",
+                "avg": 10000,
+                "variance": 100
+            },
+            "services": [
+                "serviceA"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-05-23T18:13:08.290Z",
+            "to": "2017-05-23T18:45:29.937Z",
+            "duration": {
+                "type": "gauss",
+                "avg": 10000,
+                "variance": 100
+            },
+            "servers": [
+                "srvr1"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-06-15T05:35:56.424Z",
+            "to": "2017-06-15T06:14:54.985Z",
+            "error_rate": 0.5,
+            "servers": [
+                "srvr1"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-07-06T08:12:37.657Z",
+            "to": "2017-07-06T08:43:21.976Z",
+            "error_rate": 0.5,
+            "servers": [
+                "srvr1"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-07-30T01:41:28.248Z",
+            "to": "2017-07-30T02:21:36.269Z",
+            "duration": {
+                "type": "gauss",
+                "avg": 10000,
+                "variance": 100
+            },
+            "services": [
+                "serviceA"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-08-21T19:38:15.527Z",
+            "to": "2017-08-21T20:09:21.472Z",
+            "error_rate": 0.5,
+            "servers": [
+                "srvr1"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-09-14T00:18:34.762Z",
+            "to": "2017-09-14T00:35:34.884Z",
+            "duration": {
+                "type": "gauss",
+                "avg": 10000,
+                "variance": 100
+            },
+            "servers": [
+                "srvr1"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-10-04T05:03:20.004Z",
+            "to": "2017-10-04T05:31:05.781Z",
+            "error_rate": 0.5,
+            "servers": [
+                "srvr1"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-10-28T21:51:16.314Z",
+            "to": "2017-10-28T22:19:46.142Z",
+            "error_rate": 0.5,
+            "servers": [
+                "srvr1"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-11-17T13:09:15.111Z",
+            "to": "2017-11-17T13:42:07.324Z",
+            "duration": {
+                "type": "gauss",
+                "avg": 10000,
+                "variance": 100
+            },
+            "servers": [
+                "srvr1"
+            ]
+        },
+        {
+            "tag": "type1",
+            "from": "2017-12-12T01:22:57.167Z",
+            "to": "2017-12-12T02:06:49.825Z",
+            "error_rate": 0.5,
+            "services": [
+                "serviceA"
+            ]
+        }
+    ]
+}

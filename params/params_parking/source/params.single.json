@@ -1,0 +1,30 @@
+{
+    "general": {
+        "grid": { "x": 1, "y": 1 }
+    },
+    "parking_lots": [
+        { "id": "a", "capacity": 20, "x": 0, "y": 0 }
+    ],
+    "profiles": [{
+            "id": 1,
+            "start": { "type": "gauss", "mean": 8, "std_dev": 0.5 },
+            "duration": { "type": "gauss", "mean": 8, "std_dev": 2 },
+            "target": { "type": "point", "min_x": 0, "min_y": 0 },
+            "count": 8
+        },
+        {
+            "id": 2,
+            "start": { "type": "uniform", "min": 0, "max": 24 },
+            "duration": { "type": "gauss", "mean": 2, "std_dev": 1 },
+            "target": { "type": "point", "min_x": 0, "min_y": 0 },
+            "count": 20
+        },
+        {
+            "id": 3,
+            "start": { "type": "uniform", "min": 0, "max": 24 },
+            "duration": { "type": "gauss", "mean": 6, "std_dev": 2 },
+            "target": { "type": "uniform", "min_x": 0, "max_x": 0, "min_y": 0, "max_y": 0 },
+            "count": 10
+        }
+    ]
+}

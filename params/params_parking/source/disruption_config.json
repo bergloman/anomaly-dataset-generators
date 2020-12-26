@@ -1,0 +1,43 @@
+{
+    "general": {
+        "from": "2020-01-01T00:00:00",
+        "to": "2021-01-01T00:00:00"
+    },
+    "complexities": ["single", "simple", "moderate", "complex"],
+    "disruptions": [{
+            "name": "type-b",
+            "types": ["type-b"],
+            "count": 10
+        },
+        {
+            "name": "type-e",
+            "types": ["type-e"],
+            "count": 10
+        },
+        {
+            "name": "type-r",
+            "types": ["type-r"],
+            "count": 10
+        },
+        {
+            "name": "type-be",
+            "types": ["type-b", "type-e"],
+            "count": 20
+        },
+        {
+            "name": "type-br",
+            "types": ["type-b", "type-r"],
+            "count": 20
+        },
+        {
+            "name": "type-er",
+            "types": ["type-e", "type-r"],
+            "count": 20
+        },
+        {
+            "name": "type-ber",
+            "types": ["type-b", "type-e", "type-r"],
+            "count": 30
+        }
+    ]
+}

@@ -1,0 +1,470 @@
+{
+    "general": {
+        "grid": {
+            "x": 10,
+            "y": 10
+        },
+        "from": "2019-12-31T23:00:00.000Z",
+        "to": "2020-12-31T23:00:00.000Z"
+    },
+    "parking_lots": [
+        {
+            "id": "a",
+            "capacity": 32,
+            "x": 1,
+            "y": 1
+        },
+        {
+            "id": "b",
+            "capacity": 20,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "c",
+            "capacity": 32,
+            "x": 2,
+            "y": 5
+        },
+        {
+            "id": "d",
+            "capacity": 32,
+            "x": 4,
+            "y": 5
+        },
+        {
+            "id": "e",
+            "capacity": 20,
+            "x": 5,
+            "y": 5
+        },
+        {
+            "id": "f",
+            "capacity": 50,
+            "x": 3,
+            "y": 4
+        },
+        {
+            "id": "g",
+            "capacity": 20,
+            "x": 4,
+            "y": 1
+        },
+        {
+            "id": "h",
+            "capacity": 20,
+            "x": 3,
+            "y": 7
+        },
+        {
+            "id": "i",
+            "capacity": 20,
+            "x": 4,
+            "y": 2
+        },
+        {
+            "id": "j",
+            "capacity": 10,
+            "x": 2,
+            "y": 1
+        },
+        {
+            "id": "k",
+            "capacity": 10,
+            "x": 2,
+            "y": 8
+        },
+        {
+            "id": "l",
+            "capacity": 10,
+            "x": 2,
+            "y": 2
+        },
+        {
+            "id": "m",
+            "capacity": 20,
+            "x": 8,
+            "y": 1
+        },
+        {
+            "id": "n",
+            "capacity": 20,
+            "x": 8,
+            "y": 0
+        },
+        {
+            "id": "o",
+            "capacity": 20,
+            "x": 9,
+            "y": 8
+        },
+        {
+            "id": "p",
+            "capacity": 20,
+            "x": 9,
+            "y": 5
+        },
+        {
+            "id": "q",
+            "capacity": 20,
+            "x": 7,
+            "y": 6
+        },
+        {
+            "id": "r",
+            "capacity": 20,
+            "x": 6,
+            "y": 9
+        },
+        {
+            "id": "s",
+            "capacity": 32,
+            "x": 7,
+            "y": 3
+        },
+        {
+            "id": "t",
+            "capacity": 32,
+            "x": 8,
+            "y": 3
+        }
+    ],
+    "profiles": [
+        {
+            "id": 1,
+            "start": {
+                "type": "uniform",
+                "min": 0,
+                "max": 24
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 2,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 0,
+                "max_x": 4,
+                "min_y": 9,
+                "max_y": 9
+            },
+            "count": 40
+        },
+        {
+            "id": 2,
+            "start": {
+                "type": "gauss",
+                "mean": 8,
+                "std_dev": 0.4
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 8,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "point",
+                "min_x": 1,
+                "min_y": 1
+            },
+            "count": 40
+        },
+        {
+            "id": 3,
+            "start": {
+                "type": "gauss",
+                "mean": 9,
+                "std_dev": 0.5
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 7,
+                "std_dev": 2
+            },
+            "target": {
+                "type": "point",
+                "min_x": 3,
+                "min_y": 3
+            },
+            "count": 40
+        },
+        {
+            "id": 4,
+            "start": {
+                "type": "gauss",
+                "mean": 8,
+                "std_dev": 0.3
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 8,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "point",
+                "min_x": 7,
+                "min_y": 3
+            },
+            "count": 40
+        },
+        {
+            "id": 5,
+            "start": {
+                "type": "gauss",
+                "mean": 12,
+                "std_dev": 2
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 4,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "point",
+                "min_x": 3,
+                "min_y": 4
+            },
+            "count": 60
+        },
+        {
+            "id": 6,
+            "start": {
+                "type": "uniform",
+                "min": 8,
+                "max": 16
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 4,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 1,
+                "max_x": 1,
+                "min_y": 4,
+                "max_y": 4
+            },
+            "count": 60
+        },
+        {
+            "id": 7,
+            "start": {
+                "type": "uniform",
+                "min": 6,
+                "max": 22
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 1,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 2,
+                "max_x": 2,
+                "min_y": 7,
+                "max_y": 9
+            },
+            "count": 80
+        },
+        {
+            "id": 8,
+            "start": {
+                "type": "uniform",
+                "min": 6,
+                "max": 22
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 3,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 7,
+                "max_x": 9,
+                "min_y": 0,
+                "max_y": 1
+            },
+            "count": 80
+        },
+        {
+            "id": 9,
+            "start": {
+                "type": "uniform",
+                "min": 9,
+                "max": 12
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 6,
+                "std_dev": 2
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 8,
+                "max_x": 9,
+                "min_y": 5,
+                "max_y": 8
+            },
+            "count": 30
+        },
+        {
+            "id": 10,
+            "start": {
+                "type": "uniform",
+                "min": 0,
+                "max": 24
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 6,
+                "std_dev": 2
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 9,
+                "max_y": 9
+            },
+            "count": 80
+        }
+    ],
+    "disruptions": [
+        {
+            "tag": "type-b",
+            "from": "2020-02-01T17:25:25.014Z",
+            "to": "2020-02-02T11:29:06.414Z",
+            "x": 5,
+            "y": 6
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-02-17T19:13:03.194Z",
+            "to": "2020-02-17T23:02:01.013Z",
+            "parking_lot_id": "b"
+        },
+        {
+            "tag": "type-b",
+            "from": "2020-03-07T08:05:17.566Z",
+            "to": "2020-03-07T18:08:28.157Z",
+            "x": 6,
+            "y": 0
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-03-23T02:59:29.592Z",
+            "to": "2020-03-23T05:28:16.540Z",
+            "parking_lot_id": "k"
+        },
+        {
+            "tag": "type-b",
+            "from": "2020-04-09T22:25:27.915Z",
+            "to": "2020-04-10T18:07:44.658Z",
+            "x": 0,
+            "y": 5
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-04-26T18:43:07.977Z",
+            "to": "2020-04-26T21:25:48.743Z",
+            "parking_lot_id": "f"
+        },
+        {
+            "tag": "type-b",
+            "from": "2020-05-13T04:15:41.211Z",
+            "to": "2020-05-14T05:18:30.374Z",
+            "x": 5,
+            "y": 9
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-05-27T16:46:37.530Z",
+            "to": "2020-05-27T19:41:36.691Z",
+            "parking_lot_id": "j"
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-06-14T06:17:20.636Z",
+            "to": "2020-06-14T09:19:35.384Z",
+            "parking_lot_id": "h"
+        },
+        {
+            "tag": "type-b",
+            "from": "2020-07-02T04:55:04.592Z",
+            "to": "2020-07-02T17:10:12.208Z",
+            "x": 3,
+            "y": 6
+        },
+        {
+            "tag": "type-b",
+            "from": "2020-07-18T08:25:20.568Z",
+            "to": "2020-07-19T01:49:14.749Z",
+            "x": 9,
+            "y": 1
+        },
+        {
+            "tag": "type-b",
+            "from": "2020-08-04T04:20:04.072Z",
+            "to": "2020-08-04T17:08:17.625Z",
+            "x": 2,
+            "y": 7
+        },
+        {
+            "tag": "type-b",
+            "from": "2020-08-20T06:33:32.575Z",
+            "to": "2020-08-21T00:34:37.526Z",
+            "x": 5,
+            "y": 6
+        },
+        {
+            "tag": "type-b",
+            "from": "2020-09-06T10:02:38.946Z",
+            "to": "2020-09-06T23:28:58.682Z",
+            "x": 3,
+            "y": 8
+        },
+        {
+            "tag": "type-b",
+            "from": "2020-09-23T15:00:10.273Z",
+            "to": "2020-09-24T04:12:26.346Z",
+            "x": 9,
+            "y": 7
+        },
+        {
+            "tag": "type-b",
+            "from": "2020-10-11T03:55:28.520Z",
+            "to": "2020-10-11T23:58:16.054Z",
+            "x": 9,
+            "y": 4
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-10-27T04:48:36.127Z",
+            "to": "2020-10-27T08:16:25.551Z",
+            "parking_lot_id": "c"
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-11-12T12:05:28.296Z",
+            "to": "2020-11-12T13:12:26.999Z",
+            "parking_lot_id": "d"
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-11-30T11:00:54.826Z",
+            "to": "2020-11-30T14:39:36.547Z",
+            "parking_lot_id": "r"
+        },
+        {
+            "tag": "type-b",
+            "from": "2020-12-17T17:06:56.144Z",
+            "to": "2020-12-18T17:06:03.602Z",
+            "x": 7,
+            "y": 1
+        }
+    ]
+}

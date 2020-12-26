@@ -1,0 +1,26 @@
+{
+    "name": "generator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "generator.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node main.js",
+        "test": "mocha tests/unit-tests --recursive--timeout 10000",
+        "prepare": "npm run format",
+        "format": "./node_modules/.bin/tsfmt -r",
+        "lint": "./node_modules/.bin/tslint --project ."
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "gamma-distribution": "^1.0.4"
+    },
+    "devDependencies": {
+        "@types/node": "^14.14.6",
+        "mocha": "^5.1.1",
+        "tslint": "^5.12.0",
+        "typescript": "^3.1.6",
+        "typescript-formatter": "^7.2.2"
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "general": {
+        "from": "2017-01-01T00:00:00",
+        "to": "2018-01-01T00:00:00"
+    },
+    "complexities": ["single", "simple", "moderate", "complex"],
+    "disruptions": [{
+            "name": "type1",
+            "types": ["type1"],
+            "count": 15
+        },
+        {
+            "name": "type2",
+            "types": ["type2"],
+            "count": 8
+        },
+        {
+            "name": "type3",
+            "types": ["type3"],
+            "count": 8
+        },
+        {
+            "name": "type12",
+            "types": ["type1", "type2"],
+            "count": 10
+        },
+        {
+            "name": "type13",
+            "types": ["type1", "type3"],
+            "count": 10
+        },
+        {
+            "name": "type23",
+            "types": ["type2", "type3"],
+            "count": 8
+        },
+        {
+            "name": "type123",
+            "types": ["type1", "type2", "type3"],
+            "count": 10
+        }
+    ]
+}

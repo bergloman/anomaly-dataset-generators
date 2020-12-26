@@ -1,0 +1,246 @@
+{
+    "general": {
+        "grid": {
+            "x": 6,
+            "y": 6
+        },
+        "from": "2019-12-31T23:00:00.000Z",
+        "to": "2020-12-31T23:00:00.000Z"
+    },
+    "parking_lots": [
+        {
+            "id": "a",
+            "capacity": 20,
+            "x": 1,
+            "y": 1
+        },
+        {
+            "id": "b",
+            "capacity": 20,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "c",
+            "capacity": 20,
+            "x": 2,
+            "y": 5
+        },
+        {
+            "id": "d",
+            "capacity": 20,
+            "x": 4,
+            "y": 5
+        },
+        {
+            "id": "e",
+            "capacity": 10,
+            "x": 1,
+            "y": 0
+        },
+        {
+            "id": "f",
+            "capacity": 50,
+            "x": 3,
+            "y": 4
+        },
+        {
+            "id": "g",
+            "capacity": 20,
+            "x": 4,
+            "y": 1
+        }
+    ],
+    "profiles": [
+        {
+            "id": 1,
+            "start": {
+                "type": "uniform",
+                "min": 0,
+                "max": 24
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 2,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 0,
+                "max_x": 4,
+                "min_y": 0,
+                "max_y": 4
+            },
+            "count": 40
+        },
+        {
+            "id": 2,
+            "start": {
+                "type": "gauss",
+                "mean": 8,
+                "std_dev": 0.3
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 8,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "point",
+                "min_x": 1,
+                "min_y": 1
+            },
+            "count": 40
+        },
+        {
+            "id": 3,
+            "start": {
+                "type": "gauss",
+                "mean": 9,
+                "std_dev": 0.3
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 8,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "point",
+                "min_x": 3,
+                "min_y": 3
+            },
+            "count": 40
+        },
+        {
+            "id": 4,
+            "start": {
+                "type": "gauss",
+                "mean": 14,
+                "std_dev": 2
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 4,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "point",
+                "min_x": 1,
+                "min_y": 3
+            },
+            "count": 40
+        },
+        {
+            "id": 5,
+            "start": {
+                "type": "gauss",
+                "mean": 12,
+                "std_dev": 2
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 4,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "point",
+                "min_x": 3,
+                "min_y": 4
+            },
+            "count": 40
+        },
+        {
+            "id": 6,
+            "start": {
+                "type": "uniform",
+                "min": 0,
+                "max": 24
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 6,
+                "std_dev": 2
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 5,
+                "max_y": 5
+            },
+            "count": 80
+        }
+    ],
+    "disruptions": [
+        {
+            "tag": "type-e",
+            "from": "2020-01-31T02:44:02.450Z",
+            "to": "2020-01-31T07:50:58.967Z",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "tag": "type-e",
+            "from": "2020-03-04T21:59:16.628Z",
+            "to": "2020-03-05T02:34:01.540Z",
+            "x": 4,
+            "y": 3
+        },
+        {
+            "tag": "type-e",
+            "from": "2020-04-08T08:21:02.044Z",
+            "to": "2020-04-08T12:19:06.701Z",
+            "x": 3,
+            "y": 5
+        },
+        {
+            "tag": "type-e",
+            "from": "2020-05-13T16:59:45.195Z",
+            "to": "2020-05-13T20:45:48.572Z",
+            "x": 4,
+            "y": 4
+        },
+        {
+            "tag": "type-e",
+            "from": "2020-06-14T08:00:14.620Z",
+            "to": "2020-06-14T13:54:43.856Z",
+            "x": 0,
+            "y": 3
+        },
+        {
+            "tag": "type-e",
+            "from": "2020-07-19T20:08:12.088Z",
+            "to": "2020-07-20T01:18:02.993Z",
+            "x": 2,
+            "y": 4
+        },
+        {
+            "tag": "type-e",
+            "from": "2020-08-22T04:38:15.979Z",
+            "to": "2020-08-22T09:41:16.229Z",
+            "x": 3,
+            "y": 4
+        },
+        {
+            "tag": "type-e",
+            "from": "2020-09-22T06:51:44.396Z",
+            "to": "2020-09-22T12:01:41.666Z",
+            "x": 5,
+            "y": 0
+        },
+        {
+            "tag": "type-e",
+            "from": "2020-10-28T01:18:57.072Z",
+            "to": "2020-10-28T04:50:22.270Z",
+            "x": 2,
+            "y": 0
+        },
+        {
+            "tag": "type-e",
+            "from": "2020-11-28T08:52:06.735Z",
+            "to": "2020-11-28T14:11:37.085Z",
+            "x": 2,
+            "y": 5
+        }
+    ]
+}
