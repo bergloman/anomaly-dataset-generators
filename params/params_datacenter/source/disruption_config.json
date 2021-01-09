@@ -3,7 +3,7 @@
         "from": "2017-01-01T00:00:00",
         "to": "2018-01-01T00:00:00"
     },
-    "complexities": ["single", "simple", "moderate", "complex"],
+    "complexities": ["flat", "single", "simple", "moderate", "complex"],
     "disruptions": [{
             "name": "type1",
             "types": ["type1"],
