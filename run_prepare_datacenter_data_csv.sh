@@ -27,7 +27,7 @@ do
             node build/main.js \
                 --generator $GENERATOR \
                 -t csv \
-                -f params/$TYPE/params.$SOURCE.$TYPE.json \
+                -f params/params_$GENERATOR/$TYPE/params.$SOURCE.$TYPE.json \
                 -o $DIR/$SOURCE.$TYPE.csv \
                 $NORMALIZE
         done
