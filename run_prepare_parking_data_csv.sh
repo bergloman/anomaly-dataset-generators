@@ -27,6 +27,7 @@ do
             node build/main.js \
                 --generator $GENERATOR \
                 -t csv \
+                --skip_timestamp \
                 -f params/params_$GENERATOR/$TYPE/params.$SOURCE.$TYPE.json \
                 -o $DIR/$SOURCE.$TYPE.csv \
                 $NORMALIZE
