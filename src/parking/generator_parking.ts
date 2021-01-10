@@ -116,10 +116,10 @@ export class ParkingWorld {
     }
 
     public run() {
-        // console.log(
-        //     `Starting generation of data for interval between ` +
-        //     `${this.config.general.from} and ${this.config.general.to}`
-        // );
+        console.log(
+            `Starting generation of data for interval between ` +
+            `${this.config.general.from} and ${this.config.general.to}`
+        );
         this.resulting_data = [];
         this.resulting_data2 = [];
         while (this.current_ts < this.final_ts) {
@@ -133,6 +133,7 @@ export class ParkingWorld {
                 this.events = this.events.slice(1);
                 this.current_ts = ev.ts;
                 if (ev.type == ParkingEventType.Arrival) {
+                    console.log(`Arrival ${new Date(ev.ts).toISOString()}`);
                     // find free parking lot
                     // also include check if parking-lot accepts new arrivals
                     let candidates = this.parking_lots
@@ -163,13 +164,15 @@ export class ParkingWorld {
                     let ts_depart = ev.ts + ev.dur;
                     const ts_depart2 = this.defect_checker.check(lot.lot.id, ts_depart, false);
                     if (ts_depart2 > 0) {
+                        console.log(`   Defect`);
                         ts_depart = ts_depart2;
                     }
-
+                    console.log(`   Calculated departure ${new Date(ts_depart).toISOString()}`);
                     this.events.push(ParkingEvent.createDeparture(ts_depart, lot.lot.id));
                     this.events = this.events.sort((a, b) => a.ts - b.ts);
 
                 } else if (ev.type == ParkingEventType.Departure) {
+                    console.log(`Departure ${new Date(ev.ts).toISOString()}`);
                     // leave parking lot
                     for (const lot of this.parking_lots) {
                         if (lot.id != ev.parking_lot_id) {

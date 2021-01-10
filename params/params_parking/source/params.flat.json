@@ -8,7 +8,7 @@
     "profiles": [{
             "id": 1,
             "start": { "type": "uniform", "min": 0, "max": 24 },
-            "duration": { "type": "gauss", "mean": 2, "std_dev":0.5 },
+            "duration": { "type": "gauss", "mean": 1, "std_dev":0.05 },
             "target": { "type": "point", "min_x": 0, "min_y": 0 },
             "count": 85
         }
