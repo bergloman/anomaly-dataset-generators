@@ -135,43 +135,8 @@
     "disruptions": [
         {
             "tag": "type1",
-            "from": "2017-02-01T12:48:54.524Z",
-            "to": "2017-02-01T13:25:27.272Z",
-            "error_rate": 0.5,
-            "services": [
-                "serviceC",
-                "serviceB"
-            ]
-        },
-        {
-            "tag": "type3",
-            "from": "2017-03-07T14:42:41.722Z",
-            "to": "2017-03-11T08:23:48.280Z",
-            "services": [
-                "serviceA"
-            ],
-            "disruption": {
-                "type": "linear",
-                "min": 1100,
-                "max": 10000,
-                "std_dev": 20,
-                "min_ts": "2017-03-07T14:42:41.722Z",
-                "max_ts": "2017-03-11T08:23:48.280Z"
-            }
-        },
-        {
-            "tag": "type1",
-            "from": "2017-04-09T09:28:05.882Z",
-            "to": "2017-04-09T09:55:36.694Z",
-            "error_rate": 0.5,
-            "services": [
-                "serviceD"
-            ]
-        },
-        {
-            "tag": "type1",
-            "from": "2017-05-13T04:08:08.539Z",
-            "to": "2017-05-13T04:40:57.581Z",
+            "from": "2017-02-01T11:18:41.275Z",
+            "to": "2017-02-01T11:49:08.157Z",
             "duration": {
                 "type": "gauss",
                 "mean": 10000,
@@ -184,96 +149,135 @@
         },
         {
             "tag": "type3",
-            "from": "2017-06-15T04:44:28.774Z",
-            "to": "2017-06-18T22:23:47.635Z",
+            "from": "2017-03-06T15:36:27.790Z",
+            "to": "2017-03-11T10:25:54.778Z",
             "services": [
-                "serviceA"
+                "serviceA",
+                "serviceC"
             ],
             "disruption": {
                 "type": "linear",
                 "min": 1100,
                 "max": 10000,
                 "std_dev": 20,
-                "min_ts": "2017-06-15T04:44:28.774Z",
-                "max_ts": "2017-06-18T22:23:47.635Z"
+                "min_ts": "2017-03-06T15:36:27.790Z",
+                "max_ts": "2017-03-11T10:25:54.778Z"
             }
         },
         {
             "tag": "type3",
-            "from": "2017-07-18T07:37:36.163Z",
-            "to": "2017-07-21T17:27:46.124Z",
+            "from": "2017-04-08T11:36:15.539Z",
+            "to": "2017-04-12T23:50:25.228Z",
             "services": [
                 "serviceA",
-                "serviceD"
+                "serviceC"
             ],
             "disruption": {
                 "type": "linear",
                 "min": 1100,
                 "max": 10000,
                 "std_dev": 20,
-                "min_ts": "2017-07-18T07:37:36.163Z",
-                "max_ts": "2017-07-21T17:27:46.124Z"
+                "min_ts": "2017-04-08T11:36:15.539Z",
+                "max_ts": "2017-04-12T23:50:25.228Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-05-11T16:22:05.684Z",
+            "to": "2017-05-14T09:40:35.622Z",
+            "services": [
+                "serviceD"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 550,
+                "max": 5000,
+                "std_dev": 20,
+                "min_ts": "2017-05-11T16:22:05.684Z",
+                "max_ts": "2017-05-14T09:40:35.622Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-06-16T03:32:12.256Z",
+            "to": "2017-06-18T14:23:10.401Z",
+            "services": [
+                "serviceD"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 550,
+                "max": 5000,
+                "std_dev": 20,
+                "min_ts": "2017-06-16T03:32:12.256Z",
+                "max_ts": "2017-06-18T14:23:10.401Z"
             }
         },
         {
             "tag": "type1",
-            "from": "2017-08-22T10:23:30.200Z",
-            "to": "2017-08-22T11:03:48.865Z",
+            "from": "2017-07-20T06:45:20.373Z",
+            "to": "2017-07-20T07:03:43.831Z",
             "duration": {
                 "type": "gauss",
                 "mean": 10000,
                 "std_dev": 100
             },
+            "services": [
+                "serviceA"
+            ]
+        },
+        {
+            "tag": "type3",
+            "from": "2017-08-20T03:30:46.991Z",
+            "to": "2017-08-24T07:20:00.785Z",
+            "services": [
+                "serviceD",
+                "serviceC"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 660,
+                "max": 6000,
+                "std_dev": 20,
+                "min_ts": "2017-08-20T03:30:46.991Z",
+                "max_ts": "2017-08-24T07:20:00.785Z"
+            }
+        },
+        {
+            "tag": "type1",
+            "from": "2017-09-24T18:21:19.042Z",
+            "to": "2017-09-24T19:00:31.752Z",
+            "error_rate": 0.5,
             "servers": [
+                "srvr3",
                 "srvr4"
             ]
         },
         {
+            "tag": "type3",
+            "from": "2017-10-27T20:41:23.646Z",
+            "to": "2017-11-01T10:11:00.615Z",
+            "services": [
+                "serviceA",
+                "serviceB"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 1100,
+                "max": 10000,
+                "std_dev": 20,
+                "min_ts": "2017-10-27T20:41:23.646Z",
+                "max_ts": "2017-11-01T10:11:00.615Z"
+            }
+        },
+        {
             "tag": "type1",
-            "from": "2017-09-22T17:25:06.160Z",
-            "to": "2017-09-22T17:46:45.557Z",
-            "duration": {
-                "type": "gauss",
-                "mean": 6000,
-                "std_dev": 100
-            },
-            "services": [
-                "serviceC"
+            "from": "2017-12-01T02:51:54.666Z",
+            "to": "2017-12-01T03:15:54.339Z",
+            "error_rate": 0.5,
+            "servers": [
+                "srvr3"
             ]
-        },
-        {
-            "tag": "type3",
-            "from": "2017-10-27T05:03:45.320Z",
-            "to": "2017-10-30T03:30:09.888Z",
-            "services": [
-                "serviceB",
-                "serviceA"
-            ],
-            "disruption": {
-                "type": "linear",
-                "min": 1100,
-                "max": 10000,
-                "std_dev": 20,
-                "min_ts": "2017-10-27T05:03:45.320Z",
-                "max_ts": "2017-10-30T03:30:09.888Z"
-            }
-        },
-        {
-            "tag": "type3",
-            "from": "2017-11-29T13:26:13.462Z",
-            "to": "2017-12-03T14:41:35.950Z",
-            "services": [
-                "serviceC",
-                "serviceA"
-            ],
-            "disruption": {
-                "type": "linear",
-                "min": 1100,
-                "max": 10000,
-                "std_dev": 20,
-                "min_ts": "2017-11-29T13:26:13.462Z",
-                "max_ts": "2017-12-03T14:41:35.950Z"
-            }
         }
     ]
 }
