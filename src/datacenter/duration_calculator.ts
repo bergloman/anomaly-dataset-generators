@@ -13,15 +13,15 @@ export class DurationCalculator implements intf.IDurationCalculator {
         ts_start: number, ts_end: number, relaxed: boolean
     ) {
         this.configs = config.map((x): intf.IDurationConfigEx => ({
-            avg: x.avg,
             max: x.max,
             max_ts: x.max_ts,
             max_ts_num: (x.max_ts ? (new Date(x.max_ts)).getTime() : ts_end),
+            mean: x.mean,
             min: x.min,
             min_ts: x.min_ts,
             min_ts_num: (x.min_ts ? (new Date(x.min_ts)).getTime() : ts_start),
-            type: x.type,
-            variance: x.variance
+            std_dev: x.std_dev,
+            type: x.type
         }));
         this.random = random;
         this.relaxed = relaxed;
@@ -34,20 +34,20 @@ export class DurationCalculator implements intf.IDurationCalculator {
             return (config.min || 0) + random.random() * ((config.max || 0) - (config.min || 0));
         }
         if (config.type === "gauss") {
-            const val = (config.avg || 0) + (config.variance || 0) * randomGaussian(random);
+            const val = (config.mean || 0) + (config.std_dev || 0) * randomGaussian(random);
             return Math.floor(val < 0 ? 0 : val);
         }
         if (config.type === "linear") {
             const ratio = (now - config.min_ts_num) / (config.max_ts_num - config.min_ts_num);
             let val = (config.min || 0) + ratio * ((config.max || 0) - (config.min || 0));
-            if (config.variance) {
-                val += config.variance * randomGaussian(random);
+            if (config.std_dev) {
+                val += config.std_dev * randomGaussian(random);
             }
             return val;
         }
         if (config.type === "hourly") {
             const hod = new Date(now).getHours();
-            const val = (config.hours || [])[hod] + (config.variance || 0) * randomGaussian(random);
+            const val = (config.hours || [])[hod] + (config.std_dev || 0) * randomGaussian(random);
             return Math.floor(val < 0 ? 0 : val);
         }
         throw new Error("Unknown duration to generate: " + JSON.stringify(config));

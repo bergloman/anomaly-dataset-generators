@@ -70,3 +70,5 @@ if (normalize_hours) {
 
 const writer = new w.WriterCsvCombined(output, !skip_timestamp);
 data2.forEach(x => writer.addRec(x));
+
+console.log(`Finished output=${argv.o}`);

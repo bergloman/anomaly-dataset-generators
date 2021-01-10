@@ -1,9 +1,8 @@
 {
-    "services": [
-        {
+    "services": [{
             "name": "serviceA",
             "error_rate": 0.0001,
-            "durations": [{ "type": "gauss", "avg": 1000, "variance": 50 }],
+            "durations": [{ "type": "gauss", "mean": 1000, "std_dev": 50 }],
             "deps": [
                 { "dest": "serviceC", "type": "uniform", "min": 1, "max": 3 }
             ]
@@ -11,7 +10,7 @@
         {
             "name": "serviceB",
             "error_rate": 0.0001,
-            "durations": [{ "type": "gauss", "avg": 1000, "variance": 200 }],
+            "durations": [{ "type": "gauss", "mean": 1000, "std_dev": 200 }],
             "deps": [
                 { "dest": "serviceC", "type": "uniform", "min": 1, "max": 2 },
                 { "dest": "serviceD", "type": "uniform", "min": 0, "max": 1 }
@@ -20,16 +19,15 @@
         {
             "name": "serviceC",
             "error_rate": 0.0001,
-            "durations": [{ "type": "gauss", "avg": 600, "variance": 50 }]
+            "durations": [{ "type": "gauss", "mean": 600, "std_dev": 50 }]
         },
         {
             "name": "serviceD",
             "error_rate": 0.0001,
-            "durations": [{ "type": "gauss", "avg": 500, "variance": 100 }]
+            "durations": [{ "type": "gauss", "mean": 500, "std_dev": 100 }]
         }
     ],
-    "service_calls": [
-        {
+    "service_calls": [{
             "service": "serviceA",
             "type": "const",
             "active": [8, 17],
@@ -47,8 +45,7 @@
             "noise": 0.01
         }
     ],
-    "servers": [
-        {
+    "servers": [{
             "name": "srvr1",
             "services": ["serviceA", "serviceB"]
         },

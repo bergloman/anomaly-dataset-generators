@@ -13,7 +13,7 @@
         "gamma-distribution": "^1.0.4"
     },
     "devDependencies": {
-        "@types/node": "^14.14.6",
+        "@types/node": "^14.14.20",
         "mocha": "^5.1.1",
         "tslint": "^5.12.0",
         "typescript": "^3.1.6",

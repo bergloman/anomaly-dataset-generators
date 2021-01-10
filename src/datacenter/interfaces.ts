@@ -2,8 +2,8 @@ export interface IDurationConfig {
     type: string;
     min?: number;
     max?: number;
-    avg?: number;
-    variance?: number;
+    mean?: number;
+    std_dev?: number;
     min_ts?: string;
     max_ts?: string;
     hours?: number[];
@@ -17,8 +17,8 @@ export interface ICallConfig {
     type: string;
     min?: number;
     max?: number;
-    avg?: number;
-    variance?: number;
+    mean?: number;
+    std_dev?: number;
 }
 
 export interface IServerConfig {
@@ -58,11 +58,10 @@ export interface IDisruptionConfig {
     to: string;
     d_from: number;
     d_to: number;
-    services: string[];
-    servers: string[];
+    services?: string[];
+    servers?: string[];
     error_rate: number;
     duration: IDurationConfig;
-    variance?: number;
 }
 
 export interface IGeneralConfig {

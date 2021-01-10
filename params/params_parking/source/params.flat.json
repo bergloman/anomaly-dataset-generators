@@ -3,14 +3,13 @@
         "grid": { "x": 1, "y": 1 }
     },
     "parking_lots": [
-        { "id": "a", "capacity": 20, "x": 0, "y": 0 }
+        { "id": "a", "capacity": 100, "x": 0, "y": 0 }
     ],
     "profiles": [{
-            "id": 1,
-            "start": { "type": "uniform", "min": 0, "max": 24 },
-            "duration": { "type": "gauss", "mean": 1, "std_dev":0.05 },
-            "target": { "type": "point", "min_x": 0, "min_y": 0 },
-            "count": 85
-        }
-    ]
+        "id": 1,
+        "start": { "type": "deterministic", "min": 0, "max": 24 },
+        "duration": { "type": "gauss", "mean": 2, "std_dev": 0.05 },
+        "target": { "type": "point", "min_x": 0, "min_y": 0 },
+        "count": 1000
+    }]
 }

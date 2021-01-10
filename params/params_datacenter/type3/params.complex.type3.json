@@ -6,8 +6,8 @@
             "durations": [
                 {
                     "type": "gauss",
-                    "avg": 1000,
-                    "variance": 50,
+                    "mean": 1000,
+                    "std_dev": 50,
                     "min_ts": "2016-12-30T23:00:00.000Z",
                     "max_ts": "2018-01-01T23:00:00.000Z"
                 }
@@ -27,8 +27,8 @@
             "durations": [
                 {
                     "type": "gauss",
-                    "avg": 1000,
-                    "variance": 200,
+                    "mean": 1000,
+                    "std_dev": 200,
                     "min_ts": "2016-12-30T23:00:00.000Z",
                     "max_ts": "2018-01-01T23:00:00.000Z"
                 }
@@ -54,8 +54,8 @@
             "durations": [
                 {
                     "type": "gauss",
-                    "avg": 600,
-                    "variance": 50,
+                    "mean": 600,
+                    "std_dev": 50,
                     "min_ts": "2016-12-30T23:00:00.000Z",
                     "max_ts": "2018-01-01T23:00:00.000Z"
                 }
@@ -81,8 +81,8 @@
             "durations": [
                 {
                     "type": "gauss",
-                    "avg": 500,
-                    "variance": 100,
+                    "mean": 500,
+                    "std_dev": 100,
                     "min_ts": "2016-12-30T23:00:00.000Z",
                     "max_ts": "2018-01-01T23:00:00.000Z"
                 }
@@ -94,8 +94,8 @@
             "durations": [
                 {
                     "type": "gauss",
-                    "avg": 70,
-                    "variance": 10,
+                    "mean": 70,
+                    "std_dev": 10,
                     "min_ts": "2016-12-30T23:00:00.000Z",
                     "max_ts": "2018-01-01T23:00:00.000Z"
                 }
@@ -107,8 +107,8 @@
             "durations": [
                 {
                     "type": "gauss",
-                    "avg": 70,
-                    "variance": 30,
+                    "mean": 70,
+                    "std_dev": 30,
                     "min_ts": "2016-12-30T23:00:00.000Z",
                     "max_ts": "2018-01-01T23:00:00.000Z"
                 }
@@ -189,89 +189,8 @@
     "disruptions": [
         {
             "tag": "type3",
-            "from": "2017-02-02T15:32:27.685Z",
-            "to": "2017-02-06T08:22:13.157Z",
-            "services": [
-                "serviceA"
-            ],
-            "disruption": {
-                "type": "linear",
-                "min": 1100,
-                "max": 10000,
-                "variance": 20,
-                "min_ts": "2017-02-02T15:32:27.685Z",
-                "max_ts": "2017-02-06T08:22:13.157Z"
-            }
-        },
-        {
-            "tag": "type3",
-            "from": "2017-03-16T03:49:55.102Z",
-            "to": "2017-03-20T09:42:20.867Z",
-            "services": [
-                "serviceB"
-            ],
-            "disruption": {
-                "type": "linear",
-                "min": 1100,
-                "max": 10000,
-                "variance": 20,
-                "min_ts": "2017-03-16T03:49:55.102Z",
-                "max_ts": "2017-03-20T09:42:20.867Z"
-            }
-        },
-        {
-            "tag": "type3",
-            "from": "2017-04-26T08:01:48.277Z",
-            "to": "2017-05-01T02:22:59.820Z",
-            "services": [
-                "serviceB"
-            ],
-            "disruption": {
-                "type": "linear",
-                "min": 1100,
-                "max": 10000,
-                "variance": 20,
-                "min_ts": "2017-04-26T08:01:48.277Z",
-                "max_ts": "2017-05-01T02:22:59.820Z"
-            }
-        },
-        {
-            "tag": "type3",
-            "from": "2017-06-08T04:58:10.950Z",
-            "to": "2017-06-12T20:20:10.580Z",
-            "services": [
-                "serviceB",
-                "serviceD"
-            ],
-            "disruption": {
-                "type": "linear",
-                "min": 1100,
-                "max": 10000,
-                "variance": 20,
-                "min_ts": "2017-06-08T04:58:10.950Z",
-                "max_ts": "2017-06-12T20:20:10.580Z"
-            }
-        },
-        {
-            "tag": "type3",
-            "from": "2017-07-19T14:09:24.335Z",
-            "to": "2017-07-24T07:08:41.930Z",
-            "services": [
-                "serviceB"
-            ],
-            "disruption": {
-                "type": "linear",
-                "min": 1100,
-                "max": 10000,
-                "variance": 20,
-                "min_ts": "2017-07-19T14:09:24.335Z",
-                "max_ts": "2017-07-24T07:08:41.930Z"
-            }
-        },
-        {
-            "tag": "type3",
-            "from": "2017-08-28T13:42:51.475Z",
-            "to": "2017-08-31T04:08:58.694Z",
+            "from": "2017-01-31T22:52:56.787Z",
+            "to": "2017-02-05T03:05:19.386Z",
             "services": [
                 "serviceE"
             ],
@@ -279,42 +198,123 @@
                 "type": "linear",
                 "min": 77,
                 "max": 700,
-                "variance": 20,
-                "min_ts": "2017-08-28T13:42:51.475Z",
-                "max_ts": "2017-08-31T04:08:58.694Z"
+                "std_dev": 20,
+                "min_ts": "2017-01-31T22:52:56.787Z",
+                "max_ts": "2017-02-05T03:05:19.386Z"
             }
         },
         {
             "tag": "type3",
-            "from": "2017-10-12T00:23:00.361Z",
-            "to": "2017-10-16T21:12:56.134Z",
+            "from": "2017-03-15T03:00:54.910Z",
+            "to": "2017-03-18T10:41:19.605Z",
             "services": [
-                "serviceE",
                 "serviceC"
             ],
             "disruption": {
                 "type": "linear",
                 "min": 660,
                 "max": 6000,
-                "variance": 20,
-                "min_ts": "2017-10-12T00:23:00.361Z",
-                "max_ts": "2017-10-16T21:12:56.134Z"
+                "std_dev": 20,
+                "min_ts": "2017-03-15T03:00:54.910Z",
+                "max_ts": "2017-03-18T10:41:19.605Z"
             }
         },
         {
             "tag": "type3",
-            "from": "2017-11-23T00:24:08.083Z",
-            "to": "2017-11-25T07:22:55.651Z",
+            "from": "2017-04-25T05:46:45.418Z",
+            "to": "2017-04-29T02:10:52.114Z",
             "services": [
-                "serviceD"
+                "serviceA"
             ],
             "disruption": {
                 "type": "linear",
-                "min": 550,
-                "max": 5000,
-                "variance": 20,
-                "min_ts": "2017-11-23T00:24:08.083Z",
-                "max_ts": "2017-11-25T07:22:55.651Z"
+                "min": 1100,
+                "max": 10000,
+                "std_dev": 20,
+                "min_ts": "2017-04-25T05:46:45.418Z",
+                "max_ts": "2017-04-29T02:10:52.114Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-06-08T01:17:51.869Z",
+            "to": "2017-06-10T01:32:59.411Z",
+            "services": [
+                "serviceF"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 77,
+                "max": 700,
+                "std_dev": 20,
+                "min_ts": "2017-06-08T01:17:51.869Z",
+                "max_ts": "2017-06-10T01:32:59.411Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-07-20T06:21:14.410Z",
+            "to": "2017-07-23T22:03:26.689Z",
+            "services": [
+                "serviceE",
+                "serviceF"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 77,
+                "max": 700,
+                "std_dev": 20,
+                "min_ts": "2017-07-20T06:21:14.410Z",
+                "max_ts": "2017-07-23T22:03:26.689Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-08-29T16:07:01.508Z",
+            "to": "2017-09-01T01:23:03.881Z",
+            "services": [
+                "serviceB"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 1100,
+                "max": 10000,
+                "std_dev": 20,
+                "min_ts": "2017-08-29T16:07:01.508Z",
+                "max_ts": "2017-09-01T01:23:03.881Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-10-11T13:01:31.646Z",
+            "to": "2017-10-15T14:56:56.276Z",
+            "services": [
+                "serviceA"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 1100,
+                "max": 10000,
+                "std_dev": 20,
+                "min_ts": "2017-10-11T13:01:31.646Z",
+                "max_ts": "2017-10-15T14:56:56.276Z"
+            }
+        },
+        {
+            "tag": "type3",
+            "from": "2017-11-20T17:23:04.817Z",
+            "to": "2017-11-25T15:18:10.926Z",
+            "services": [
+                "serviceE",
+                "serviceF"
+            ],
+            "disruption": {
+                "type": "linear",
+                "min": 77,
+                "max": 700,
+                "std_dev": 20,
+                "min_ts": "2017-11-20T17:23:04.817Z",
+                "max_ts": "2017-11-25T15:18:10.926Z"
             }
         }
     ]

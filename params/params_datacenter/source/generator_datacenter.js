@@ -24,7 +24,7 @@ const TMPL_TYPE1_DUR = {
     from: "2017-03-12T12:04:00Z",
     to: "2017-03-12T14:19:00Z",
     // services: [],
-    duration: { type: "gauss", avg: 5000, variance: 100 }
+    duration: { type: "gauss", mean: 5000, std_dev: 100 }
 };
 const TMPL_TYPE2 = {
     tag: "type2",
@@ -37,7 +37,7 @@ const TMPL_TYPE3 = {
     from: "2017-03-12T00:00:00",
     to: "2017-03-15T00:00:00",
     services: ["serviceA"],
-    disruption: { type: "linear", min: 1100, max: 2500, variance: 20, min_ts: "2017-03-12", max_ts: "2017-03-15" }
+    disruption: { type: "linear", min: 1100, max: 2500, std_dev: 20, min_ts: "2017-03-12", max_ts: "2017-03-15" }
 };
 
 
@@ -62,10 +62,14 @@ function getRandomType(types) {
 
 function getRandomDur(type) {
     switch (type) {
-        case "type1": return Math.round((0.25 + 0.5 * Math.random()) * HOUR);
-        case "type2": return Math.round(Math.random() * 1 * DAY);
-        case "type3": return Math.round((2 + Math.random() * 3) * DAY);
-        default: return 1;
+        case "type1":
+            return Math.round((0.25 + 0.5 * Math.random()) * HOUR);
+        case "type2":
+            return Math.round(Math.random() * 1 * DAY);
+        case "type3":
+            return Math.round((2 + Math.random() * 3) * DAY);
+        default:
+            return 1;
     }
 }
 
@@ -95,7 +99,7 @@ function runSingle(complexity, disrupt) {
     const services = src.services.map(x => x.name);
     const service_durations = src.services.map(x => ({
         name: x.name,
-        duration: x.durations[0].avg
+        duration: x.durations[0].mean
     }));
     // prepare some terrain
     src.general = d_config.general;
@@ -136,7 +140,7 @@ function runSingle(complexity, disrupt) {
             if (is_call_duration) {
                 // make duration 10x the normal value
                 const max_dur = getMaxDurationOfServices(service_durations, rec.services);
-                rec.duration.avg = 10 * max_dur;
+                rec.duration.mean = 10 * max_dur;
             }
             rec.from = anom.dt1.toISOString();
             rec.to = anom.dt2.toISOString();
@@ -153,9 +157,9 @@ function runSingle(complexity, disrupt) {
             const new_duration = JSON.parse(JSON.stringify(old_duration));
             old_duration.max_ts = anom.dt1.toISOString();
             new_duration.min_ts = old_duration.max_ts;
-            const old_value = old_duration.avg;
+            const old_value = old_duration.mean;
             const new_value = old_value * (Math.random() > 0.5 ? 1.4 : 0.6);
-            new_duration.avg = new_value;
+            new_duration.mean = new_value;
             current_service.durations.push(new_duration);
 
             src.disruptions.push(rec);
