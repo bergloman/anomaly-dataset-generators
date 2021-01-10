@@ -133,7 +133,6 @@ export class ParkingWorld {
                 this.events = this.events.slice(1);
                 this.current_ts = ev.ts;
                 if (ev.type == ParkingEventType.Arrival) {
-                    console.log(`Arrival ${new Date(ev.ts).toISOString()}`);
                     // find free parking lot
                     // also include check if parking-lot accepts new arrivals
                     let candidates = this.parking_lots
@@ -164,15 +163,12 @@ export class ParkingWorld {
                     let ts_depart = ev.ts + ev.dur;
                     const ts_depart2 = this.defect_checker.check(lot.lot.id, ts_depart, false);
                     if (ts_depart2 > 0) {
-                        console.log(`   Defect`);
                         ts_depart = ts_depart2;
                     }
-                    console.log(`   Calculated departure ${new Date(ts_depart).toISOString()}`);
                     this.events.push(ParkingEvent.createDeparture(ts_depart, lot.lot.id));
                     this.events = this.events.sort((a, b) => a.ts - b.ts);
 
                 } else if (ev.type == ParkingEventType.Departure) {
-                    console.log(`Departure ${new Date(ev.ts).toISOString()}`);
                     // leave parking lot
                     for (const lot of this.parking_lots) {
                         if (lot.id != ev.parking_lot_id) {
@@ -222,8 +218,6 @@ export class ParkingWorld {
 
         const ts_from: number = this.next_gen_ts;
         const ts_end: number = Math.min(this.final_ts, ts_from + 1 * DAY);
-
-        // console.log("Generating data for single day", new Date(ts_from), new Date(ts_end));
 
         // generate reporting events
         let cur_ts = ts_from;
@@ -332,10 +326,6 @@ export function main(fname: string): itf.ICombinedRecordD[] {
     const disr_r = disr.filter(x => x.tag == "type-r");
     const disr_b = disr.filter(x => x.tag == "type-b");
     // const disr_e = disr.filter(x => x.tag == "type-e");
-    // console.log("All disruptions:", disr.length);
-    // console.log("All disruptions of type R:", disr_r.length);
-    // console.log("All disruptions of type B:", disr_b.length);
-    // console.log("All disruptions of type R:", disr_e.length);
     const random: itf.IRandom = {
         random: (): number => Math.random()
     };
@@ -345,7 +335,6 @@ export function main(fname: string): itf.ICombinedRecordD[] {
         check: (id: string, ts: number, is_arrival: boolean): number => {
             for (const x of disr_r) {
                 if (x.parking_lot_id == id && x.from <= ts && x.to >= ts) {
-                    // console.log("check type-r", x);
                     return x.to;
                 }
             }
@@ -356,7 +345,6 @@ export function main(fname: string): itf.ICombinedRecordD[] {
                 if (lot) {
                     for (const x of disr_b) {
                         if (x.x == lot.x && x.y == lot.y && x.from <= ts && x.to >= ts) {
-                            // console.log("check type-b", lot, x);
                             return x.to;
                         }
                     }
