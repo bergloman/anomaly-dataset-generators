@@ -5,10 +5,11 @@
 #########################################################################
 
 TYPES=("type-b" "type-e" "type-r" "type-be" "type-br" "type-er" "type-ber")
-SOURCES=("complex" "moderate" "simple" "single" "flat")
+# SOURCES=("complex" "moderate" "simple" "single" "flat")
+# TYPES=("type-b")
+SOURCES=("flat")
 NORMALIZE_TAGS=("yes" "no")
 GENERATOR="parking"
-NORMALIZE=""
 
 for NORMALIZE_TAG in "${NORMALIZE_TAGS[@]}"
 do

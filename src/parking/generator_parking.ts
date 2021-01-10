@@ -247,11 +247,11 @@ export class ParkingWorld {
                 });
             }
         }
-        for (const profile of profiles) {
-            for (let i = 0; i < profile.count; i++) {
-                const start = u.HOUR * getRandomSampleFromSimpleDistribution(profile.start, this.rand);
-                const dur = u.HOUR * getRandomSampleFromSimpleDistribution(profile.duration, this.rand);
-                const target = getRandomGridLocation(profile.target, this.rand, this.config.general.grid);
+        for (const p of profiles) {
+            for (let i = 0; i < p.count; i++) {
+                const start = u.HOUR * getRandomSampleFromSimpleDistribution(p.start, this.rand, i, p.count);
+                const dur = u.HOUR * getRandomSampleFromSimpleDistribution(p.duration, this.rand, i, p.count);
+                const target = getRandomGridLocation(p.target, this.rand, this.config.general.grid);
                 this.events.push(ParkingEvent.createArrival(ts_from + start, target, dur));
             }
         }
@@ -265,7 +265,11 @@ export class ParkingWorld {
 }
 
 function getRandomSampleFromSimpleDistribution(
-    config: intf.IProfileDistributionSimple, rand: itf.IRandom): number {
+    config: intf.IProfileDistributionSimple, rand: itf.IRandom, counter: number, total: number
+): number {
+    if (config.type == "deterministic") {
+        return (counter / total) * (config.max - config.min) + config.min;
+    }
     if (config.type == "uniform") {
         return rand.random() * (config.max - config.min) + config.min;
     }

@@ -1,27 +1,21 @@
 {
-    "services": [
-        {
-            "name": "serviceA",
-            "error_rate": 0.001,
-            "durations": [{ "type": "gauss", "avg": 1000, "variance": 50 }],
-            "deps": []
-        }
-    ],
-    "service_calls": [
-        {
-            "service": "serviceA",
-            "type": "const",
-            "active": [0, 12],
-            "weekend": false,
-            "low": 5000,
-            "high": 5000,
-            "noise": 0.05
-        }
-    ],
-    "servers": [
-        {
-            "name": "srvr1",
-            "services": ["serviceA"]
-        }
-    ]
+    "services": [{
+        "name": "serviceA",
+        "error_rate": 0.001,
+        "durations": [{ "type": "gauss", "mean": 1000, "std_dev": 50 }],
+        "deps": []
+    }],
+    "service_calls": [{
+        "service": "serviceA",
+        "type": "const",
+        "active": [0, 12],
+        "weekend": false,
+        "low": 5000,
+        "high": 5000,
+        "noise": 0.05
+    }],
+    "servers": [{
+        "name": "srvr1",
+        "services": ["serviceA"]
+    }]
 }

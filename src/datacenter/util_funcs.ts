@@ -8,7 +8,7 @@ export function getDuration(config: intf.IDurationConfig, random: itf.IRandom): 
         return (config.min || 0) + random.random() * ((config.max || 0) - (config.min || 0));
     }
     if (config.type === "gauss") {
-        const val = (config.avg || 0) + (config.variance || 0) * randomGaussian(random);
+        const val = (config.mean || 0) + (config.std_dev || 0) * randomGaussian(random);
         return Math.floor(val < 0 ? 0 : val);
     }
     throw new Error("Unknown duration to generate: " + JSON.stringify(config));
@@ -20,7 +20,7 @@ export function getCallCount(config: intf.ICallConfig, random: itf.IRandom): num
         return Math.floor((config.min || 0) + random.random() * ((config.max || 0) - (config.min || 0) + 1));
     }
     if (config.type === "gauss") {
-        const val = (config.avg || 0) + (config.variance || 0) * randomGaussian(random);
+        const val = (config.mean || 0) + (config.std_dev || 0) * randomGaussian(random);
         return Math.floor(val < 0 ? 0 : val);
     }
     throw new Error("Unknown duration to generate: " + JSON.stringify(config));

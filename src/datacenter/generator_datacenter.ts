@@ -171,10 +171,16 @@ export function main(fname: string): itf.IGdrRecordD[] {
     // load input configuration
     const conf: intf.IConfig = JSON.parse(fs.readFileSync(fname, { encoding: "utf8" }));
 
-    // post-process config
+    // post-process config to match typescript interfaces
     conf.disruptions.forEach(x => {
         x.d_from = Date.parse(x.from);
         x.d_to = Date.parse(x.to);
+        if (x.servers && x.servers.length == 0) {
+            x.servers = undefined;
+        }
+        if (x.services && x.services.length == 0) {
+            x.services = undefined;
+        }
     });
 
     const intervals: number[][] = [];
