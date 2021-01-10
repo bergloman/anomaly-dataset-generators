@@ -152,6 +152,9 @@ export class CallCollector implements intf.ICallCollector {
         gdr_tmp.forEach(x => {
             if (x != null) {
                 x.values.errors_perc = x.values.responses > 0 ? x.values.errors / x.values.responses : 0;
+                // remove unneeded values
+                delete x.values.responses;
+                delete x.values.errors;
                 this.gdr.push(x);
             }
         });

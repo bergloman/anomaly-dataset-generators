@@ -5,9 +5,9 @@
 #########################################################################
 
 TYPES=("type1" "type2" "type3" "type12" "type13" "type23" "type123")
-# SOURCES=("complex" "moderate" "simple" "single" "flat")
-# TYPES=("type123")
-SOURCES=("flat")
+SOURCES=("complex" "moderate" "simple" "single" "flat")
+# TYPES=("type1")
+# SOURCES=("flat")
 NORMALIZE_TAGS=("yes" "no")
 GENERATOR="datacenter"
 
