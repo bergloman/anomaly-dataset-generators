@@ -57,7 +57,7 @@ export class DurationCalculator implements intf.IDurationCalculator {
         let hits1 = this.configs;
         if (!this.relaxed) {
             hits1 = this.configs.filter(x =>
-                (!x.min_ts || x.min_ts_num < now) &&
+                (!x.min_ts || x.min_ts_num <= now) &&
                 (!x.max_ts || x.max_ts_num > now)
             );
         }
