@@ -17,3 +17,11 @@ print( df.cov())
 cov = df.cov().to_numpy()
 flattened = cov.flatten()
 print(flattened)
+
+df_flattened = pd.DataFrame(data=flattened, index=None, columns=None)
+print( df_flattened.describe())
+
+#df_flattened.hist()
+
+bins = pd.cut(flattened, 10)
+print(bins)
