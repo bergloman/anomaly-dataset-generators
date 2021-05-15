@@ -38,6 +38,7 @@ export interface IProfile {
     duration: IProfileDistributionSimple;
     target: IProfileTarget;
     count: number;
+    radius?: number;
 }
 
 export interface IDisruption {

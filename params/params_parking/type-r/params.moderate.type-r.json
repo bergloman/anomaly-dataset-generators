@@ -61,17 +61,40 @@
             },
             "duration": {
                 "type": "gauss",
-                "mean": 2,
+                "mean": 6,
+                "std_dev": 2
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 0,
+                "max_x": 5,
+                "min_y": 0,
+                "max_y": 5
+            },
+            "radius": 3,
+            "count": 60
+        },
+        {
+            "id": 11,
+            "start": {
+                "type": "uniform",
+                "min": 6,
+                "max": 18
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 3,
                 "std_dev": 1
             },
             "target": {
                 "type": "uniform",
                 "min_x": 0,
-                "max_x": 4,
+                "max_x": 5,
                 "min_y": 0,
-                "max_y": 4
+                "max_y": 5
             },
-            "count": 40
+            "radius": 3,
+            "count": 60
         },
         {
             "id": 2,
@@ -90,6 +113,7 @@
                 "min_x": 1,
                 "min_y": 1
             },
+            "radius": 1,
             "count": 40
         },
         {
@@ -109,6 +133,7 @@
                 "min_x": 3,
                 "min_y": 3
             },
+            "radius": 4,
             "count": 40
         },
         {
@@ -128,6 +153,7 @@
                 "min_x": 1,
                 "min_y": 3
             },
+            "radius": 3,
             "count": 40
         },
         {
@@ -147,6 +173,7 @@
                 "min_x": 3,
                 "min_y": 4
             },
+            "radius": 2,
             "count": 40
         },
         {
@@ -168,69 +195,70 @@
                 "min_y": 5,
                 "max_y": 5
             },
+            "radius": 3,
             "count": 80
         }
     ],
     "disruptions": [
         {
             "tag": "type-r",
-            "from": "2020-02-02T20:29:14.593Z",
-            "to": "2020-02-02T23:19:03.610Z",
-            "parking_lot_id": "f"
+            "from": "2020-02-02T09:49:37.470Z",
+            "to": "2020-02-02T12:48:04.874Z",
+            "parking_lot_id": "c"
         },
         {
             "tag": "type-r",
-            "from": "2020-03-05T08:22:27.900Z",
-            "to": "2020-03-05T10:39:39.061Z",
-            "parking_lot_id": "b"
-        },
-        {
-            "tag": "type-r",
-            "from": "2020-04-09T14:01:08.305Z",
-            "to": "2020-04-09T17:59:11.359Z",
-            "parking_lot_id": "a"
-        },
-        {
-            "tag": "type-r",
-            "from": "2020-05-11T15:07:03.042Z",
-            "to": "2020-05-11T16:49:42.355Z",
-            "parking_lot_id": "f"
-        },
-        {
-            "tag": "type-r",
-            "from": "2020-06-14T15:08:26.100Z",
-            "to": "2020-06-14T17:48:53.153Z",
-            "parking_lot_id": "d"
-        },
-        {
-            "tag": "type-r",
-            "from": "2020-07-18T06:53:04.129Z",
-            "to": "2020-07-18T08:47:34.429Z",
-            "parking_lot_id": "f"
-        },
-        {
-            "tag": "type-r",
-            "from": "2020-08-21T13:59:33.215Z",
-            "to": "2020-08-21T15:54:02.418Z",
-            "parking_lot_id": "f"
-        },
-        {
-            "tag": "type-r",
-            "from": "2020-09-23T08:17:09.708Z",
-            "to": "2020-09-23T12:01:40.718Z",
+            "from": "2020-03-06T16:34:42.941Z",
+            "to": "2020-03-06T17:51:17.887Z",
             "parking_lot_id": "g"
         },
         {
             "tag": "type-r",
-            "from": "2020-10-28T11:35:08.030Z",
-            "to": "2020-10-28T13:08:59.282Z",
+            "from": "2020-04-08T12:40:35.717Z",
+            "to": "2020-04-08T16:38:11.439Z",
             "parking_lot_id": "b"
         },
         {
             "tag": "type-r",
-            "from": "2020-11-30T09:49:21.249Z",
-            "to": "2020-11-30T12:27:06.808Z",
+            "from": "2020-05-11T17:40:13.225Z",
+            "to": "2020-05-11T21:39:48.499Z",
+            "parking_lot_id": "b"
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-06-15T08:44:21.887Z",
+            "to": "2020-06-15T12:41:00.160Z",
+            "parking_lot_id": "d"
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-07-17T04:10:25.653Z",
+            "to": "2020-07-17T05:17:18.641Z",
             "parking_lot_id": "f"
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-08-20T09:48:55.169Z",
+            "to": "2020-08-20T11:51:39.852Z",
+            "parking_lot_id": "b"
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-09-23T19:48:05.756Z",
+            "to": "2020-09-23T22:37:27.344Z",
+            "parking_lot_id": "a"
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-10-27T07:43:15.341Z",
+            "to": "2020-10-27T09:22:45.135Z",
+            "parking_lot_id": "a"
+        },
+        {
+            "tag": "type-r",
+            "from": "2020-11-30T21:00:01.691Z",
+            "to": "2020-11-30T23:39:04.947Z",
+            "parking_lot_id": "e"
         }
     ]
 }

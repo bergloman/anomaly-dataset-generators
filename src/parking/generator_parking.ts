@@ -30,20 +30,22 @@ class GridLocation {
 }
 class ParkingEvent {
 
-    public static createArrival(ts: number, target: GridLocation, dur: number): ParkingEvent {
+    public static createArrival(
+        ts: number, target: GridLocation, dur: number, max_radius: number
+    ): ParkingEvent {
         return new ParkingEvent(
             ParkingEventType.Arrival,
-            ts, "", target, dur);
+            ts, "", target, dur, max_radius);
     }
     public static createDeparture(ts: number, parking_lot_id: string): ParkingEvent {
         return new ParkingEvent(
             ParkingEventType.Departure,
-            ts, parking_lot_id, { x: 0, y: 0 }, 0);
+            ts, parking_lot_id, { x: 0, y: 0 }, 0, 0);
     }
     public static createStats(ts: number): ParkingEvent {
         return new ParkingEvent(
             ParkingEventType.Stats,
-            ts, "", { x: 0, y: 0 }, 0);
+            ts, "", { x: 0, y: 0 }, 0, 0);
     }
 
     public type: ParkingEventType;
@@ -53,13 +55,18 @@ class ParkingEvent {
     /* Used for arrivals */
     public target: GridLocation;
     public dur: number;
+    public max_radius: number;
 
-    constructor(type: ParkingEventType, ts: number, parking_lot_id: string, target: GridLocation, dur: number) {
+    constructor(
+        type: ParkingEventType, ts: number, parking_lot_id: string,
+        target: GridLocation, dur: number, max_radius: number
+    ) {
         this.type = type;
         this.ts = ts;
         this.parking_lot_id = parking_lot_id;
         this.target = target;
         this.dur = dur;
+        this.max_radius = max_radius;
     }
 
     public printDebug() {
@@ -140,7 +147,8 @@ export class ParkingWorld {
                         .map(x => {
                             const d = euclidDist(x.x, x.y, ev.target.x, ev.target.y);
                             return { d, lot: x };
-                        });
+                        })
+                        .filter(x => x.d <= ev.max_radius);
                     candidates = candidates.sort((a, b) => {
                         const diff = a.d - b.d;
                         if (diff != 0) {
@@ -249,7 +257,7 @@ export class ParkingWorld {
                 const start = u.HOUR * getRandomSampleFromSimpleDistribution(p.start, this.rand, i, p.count);
                 const dur = u.HOUR * getRandomSampleFromSimpleDistribution(p.duration, this.rand, i, p.count);
                 const target = getRandomGridLocation(p.target, this.rand, this.config.general.grid);
-                this.events.push(ParkingEvent.createArrival(ts_from + start, target, dur));
+                this.events.push(ParkingEvent.createArrival(ts_from + start, target, dur, p.radius || 1000));
             }
         }
 

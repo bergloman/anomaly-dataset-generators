@@ -38,6 +38,12 @@ To prepare datasets with different sizes and anomaly types we performed simple p
 - Simple script creates final configuration files by taking basic configuration (e.g. moderate) and injecting anomaly definitions into them (e.g. type1+type3).
 - This simple procedure generates 4x7=28 different configuration files.
 
+```bash
+cd params/params_datacenter/source
+node generator_datacenter.js
+
+cd params/params_parking/source
+node generator_parking_lot.js
+```
+
 The configuration file we produced in the above steps are now the input for the dataset generator, which simulates the problem domain and injects the anomalies into it.
-
-

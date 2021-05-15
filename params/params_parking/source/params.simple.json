@@ -11,6 +11,7 @@
             "start": { "type": "uniform", "min": 0, "max": 24 },
             "duration": { "type": "gauss", "mean": 2, "std_dev": 1 },
             "target": { "type": "uniform", "min_x": 0, "max_x": 1, "min_y": 0, "max_y": 1 },
+            "radius": 1,
             "count": 50
         },
         {

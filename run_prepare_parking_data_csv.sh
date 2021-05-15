@@ -9,9 +9,9 @@ SOURCES=("complex" "moderate" "simple" "single" "flat")
 NORMALIZE_TAGS=("yes" "no")
 GENERATOR="parking"
 
-# TYPES=("type-b")
-# SOURCES=("flat")
-# NORMALIZE_TAGS=("yes")
+# TYPES=("type-ber")
+# SOURCES=("moderate")
+# NORMALIZE_TAGS=("no")
 
 for NORMALIZE_TAG in "${NORMALIZE_TAGS[@]}"
 do
@@ -33,7 +33,7 @@ do
                 --skip_timestamp \
                 -f params/params_$GENERATOR/$TYPE/params.$SOURCE.$TYPE.json \
                 -o $DIR/$SOURCE.$TYPE.csv \
-                $NORMALIZE
+                $NORMALIZE &
         done
     done
 done
