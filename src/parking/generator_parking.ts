@@ -253,9 +253,16 @@ export class ParkingWorld {
             }
         }
         for (const p of profiles) {
-            for (let i = 0; i < p.count; i++) {
-                const start = u.HOUR * getRandomSampleFromSimpleDistribution(p.start, this.rand, i, p.count);
-                const dur = u.HOUR * getRandomSampleFromSimpleDistribution(p.duration, this.rand, i, p.count);
+            // determine the number of visitors for this profile for today
+            let daily_count = 0;
+            if (typeof p.count == "number") {
+                daily_count = p.count;
+            } else {
+                daily_count = getRandomSampleFromSimpleDistribution(p.count, this.rand, 0, 0);
+            }
+            for (let i = 0; i < daily_count; i++) {
+                const start = u.HOUR * getRandomSampleFromSimpleDistribution(p.start, this.rand, i, daily_count);
+                const dur = u.HOUR * getRandomSampleFromSimpleDistribution(p.duration, this.rand, i, daily_count);
                 const target = getRandomGridLocation(p.target, this.rand, this.config.general.grid);
                 this.events.push(ParkingEvent.createArrival(ts_from + start, target, dur, p.radius || 1000));
             }

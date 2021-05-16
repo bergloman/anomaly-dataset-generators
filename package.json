@@ -10,6 +10,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "asciichart": "^1.5.25",
         "gamma-distribution": "^1.0.4"
     },
     "devDependencies": {

@@ -37,7 +37,7 @@ export interface IProfile {
     start: IProfileDistributionSimple;
     duration: IProfileDistributionSimple;
     target: IProfileTarget;
-    count: number;
+    count: number | IProfileDistributionSimple;
     radius?: number;
 }
 
