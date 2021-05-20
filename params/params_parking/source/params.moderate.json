@@ -74,6 +74,14 @@
             "target": { "type": "uniform", "min_x": 4, "max_x": 5, "min_y": 4, "max_y": 5 },
             "radius": 1,
             "count": { "type": "gauss", "mean": 15, "std_dev": 2 }
+        },
+        {
+            "id": 71,
+            "start": { "type": "uniform", "min": 10, "max": 22 },
+            "duration": { "type": "gauss", "mean": 4, "std_dev": 1 },
+            "target": { "type": "uniform", "min_x": 3, "max_x": 5, "min_y": 3, "max_y": 5 },
+            "radius": 2,
+            "count": { "type": "gauss", "mean": 10, "std_dev": 2 }
         }
     ]
 }
