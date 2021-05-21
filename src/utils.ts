@@ -92,3 +92,44 @@ export function convertGdrToCombinedRec(data2: itf.IGdrRecordD[]): itf.ICombined
     }
     return res;
 }
+
+/** Based on: https://memory.psych.mun.ca/tech/js/correlation.shtml */ 
+export function pearson(x: number[], y: number[]): number {
+    let len = Math.min(x.length, y.length);
+
+    if (len == 0) {
+        return 0;
+    }
+
+    const xy: number[] = [];
+    const x2: number[] = [];
+    const y2: number[] = [];
+
+    for (let i = 0; i < len; i++) {
+        xy.push(x[i] * y[i]);
+        x2.push(x[i] * x[i]);
+        y2.push(y[i] * y[i]);
+    }
+
+    let sum_x = 0;
+    let sum_y = 0;
+    let sum_xy = 0;
+    let sum_x2 = 0;
+    let sum_y2 = 0;
+
+    for (let i = 0; i < len; i++) {
+        sum_x += x[i];
+        sum_y += y[i];
+        sum_xy += xy[i];
+        sum_x2 += x2[i];
+        sum_y2 += y2[i];
+    }
+
+    const step1 = (len * sum_xy) - (sum_x * sum_y);
+    const step2 = (len * sum_x2) - (sum_x * sum_x);
+    const step3 = (len * sum_y2) - (sum_y * sum_y);
+    const step4 = Math.sqrt(step2 * step3);
+    const answer = step1 / step4;
+
+    return answer;
+}
