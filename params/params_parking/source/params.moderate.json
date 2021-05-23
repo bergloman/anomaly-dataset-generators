@@ -1,87 +1,280 @@
 {
     "general": {
-        "grid": { "x": 6, "y": 6 }
+        "grid": {
+            "x": 6,
+            "y": 6
+        }
     },
     "parking_lots": [
-        { "id": "a", "capacity": 20, "x": 1, "y": 1 },
-        { "id": "b", "capacity": 20, "x": 0, "y": 0 },
-        { "id": "c", "capacity": 20, "x": 2, "y": 5 },
-        { "id": "d", "capacity": 20, "x": 4, "y": 5 },
-        { "id": "e", "capacity": 10, "x": 1, "y": 0 },
-        { "id": "f", "capacity": 50, "x": 3, "y": 4 },
-        { "id": "g", "capacity": 20, "x": 4, "y": 1 }
+        {
+            "id": "a",
+            "capacity": 20,
+            "x": 1,
+            "y": 1
+        },
+        {
+            "id": "b",
+            "capacity": 20,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "c",
+            "capacity": 20,
+            "x": 2,
+            "y": 5
+        },
+        {
+            "id": "d",
+            "capacity": 20,
+            "x": 4,
+            "y": 5
+        },
+        {
+            "id": "e",
+            "capacity": 10,
+            "x": 1,
+            "y": 0
+        },
+        {
+            "id": "f",
+            "capacity": 50,
+            "x": 3,
+            "y": 4
+        },
+        {
+            "id": "g",
+            "capacity": 20,
+            "x": 4,
+            "y": 1
+        }
     ],
-    "profiles": [{
+    "profiles": [
+        {
             "id": 1,
-            "start": { "type": "uniform", "min": 0, "max": 24 },
-            "duration": { "type": "gauss", "mean": 6, "std_dev": 2 },
-            "target": { "type": "uniform", "min_x": 0, "max_x": 5, "min_y": 0, "max_y": 5 },
+            "start": {
+                "type": "uniform",
+                "min": 0,
+                "max": 24
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 6,
+                "std_dev": 2
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 0,
+                "max_x": 5,
+                "min_y": 0,
+                "max_y": 5
+            },
             "radius": 2,
-            "count": { "type": "uniform", "min": 50, "max": 90 }
+            "count": {
+                "type": "uniform",
+                "min": 50,
+                "max": 90
+            }
         },
         {
             "id": 11,
-            "start": { "type": "uniform", "min": 6, "max": 18 },
-            "duration": { "type": "gauss", "mean": 3, "std_dev": 1 },
-            "target": { "type": "uniform", "min_x": 0, "max_x": 5, "min_y": 0, "max_y": 5 },
+            "start": {
+                "type": "uniform",
+                "min": 6,
+                "max": 18
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 3,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 0,
+                "max_x": 5,
+                "min_y": 0,
+                "max_y": 5
+            },
             "radius": 1,
-            "count": { "type": "uniform", "min": 50, "max": 70 }
+            "count": {
+                "type": "uniform",
+                "min": 50,
+                "max": 70
+            }
         },
         {
             "id": 2,
-            "start": { "type": "gauss", "mean": 8, "std_dev": 0.3 },
-            "duration": { "type": "gauss", "mean": 8, "std_dev": 1 },
-            "target": { "type": "point", "min_x": 1, "min_y": 1 },
+            "start": {
+                "type": "gauss",
+                "mean": 8,
+                "std_dev": 0.3
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 8,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "point",
+                "min_x": 1,
+                "min_y": 1
+            },
             "radius": 1,
-            "count": { "type": "uniform", "min": 35, "max": 45 }
+            "count": {
+                "type": "uniform",
+                "min": 35,
+                "max": 45
+            }
         },
         {
             "id": 3,
-            "start": { "type": "gauss", "mean": 9, "std_dev": 0.3 },
-            "duration": { "type": "gauss", "mean": 8, "std_dev": 1 },
-            "target": { "type": "point", "min_x": 3, "min_y": 3 },
+            "start": {
+                "type": "gauss",
+                "mean": 9,
+                "std_dev": 0.3
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 8,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "point",
+                "min_x": 3,
+                "min_y": 3
+            },
             "radius": 2,
-            "count": { "type": "gauss", "mean": 40, "std_dev": 5 }
+            "count": {
+                "type": "gauss",
+                "mean": 40,
+                "std_dev": 5
+            }
         },
         {
             "id": 4,
-            "start": { "type": "gauss", "mean": 14, "std_dev": 2 },
-            "duration": { "type": "gauss", "mean": 4, "std_dev": 1 },
-            "target": { "type": "point", "min_x": 1, "min_y": 3 },
+            "start": {
+                "type": "gauss",
+                "mean": 14,
+                "std_dev": 2
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 4,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "point",
+                "min_x": 1,
+                "min_y": 3
+            },
             "radius": 2,
-            "count": { "type": "gauss", "mean": 40, "std_dev": 10 }
+            "count": {
+                "type": "gauss",
+                "mean": 40,
+                "std_dev": 10
+            }
         },
         {
             "id": 5,
-            "start": { "type": "gauss", "mean": 12, "std_dev": 2 },
-            "duration": { "type": "gauss", "mean": 4, "std_dev": 1 },
-            "target": { "type": "point", "min_x": 3, "min_y": 4 },
+            "start": {
+                "type": "gauss",
+                "mean": 12,
+                "std_dev": 2
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 4,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "point",
+                "min_x": 3,
+                "min_y": 4
+            },
             "radius": 1,
-            "count": { "type": "gauss", "mean": 40, "std_dev": 10 }
+            "count": {
+                "type": "gauss",
+                "mean": 40,
+                "std_dev": 10
+            }
         },
         {
             "id": 6,
-            "start": { "type": "uniform", "min": 0, "max": 24 },
-            "duration": { "type": "gauss", "mean": 6, "std_dev": 2 },
-            "target": { "type": "uniform", "min_x": 0, "max_x": 0, "min_y": 5, "max_y": 5 },
+            "start": {
+                "type": "uniform",
+                "min": 0,
+                "max": 24
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 6,
+                "std_dev": 2
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 0,
+                "max_x": 0,
+                "min_y": 5,
+                "max_y": 5
+            },
             "radius": 1,
-            "count": { "type": "gauss", "mean": 80, "std_dev": 10 }
+            "count": {
+                "type": "gauss",
+                "mean": 80,
+                "std_dev": 10
+            }
         },
         {
             "id": 71,
-            "start": { "type": "uniform", "min": 16, "max": 24 },
-            "duration": { "type": "gauss", "mean": 4, "std_dev": 2 },
-            "target": { "type": "uniform", "min_x": 4, "max_x": 5, "min_y": 4, "max_y": 5 },
+            "start": {
+                "type": "uniform",
+                "min": 16,
+                "max": 24
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 4,
+                "std_dev": 2
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 4,
+                "max_x": 5,
+                "min_y": 4,
+                "max_y": 5
+            },
             "radius": 1,
-            "count": { "type": "gauss", "mean": 15, "std_dev": 2 }
+            "count": {
+                "type": "gauss",
+                "mean": 15,
+                "std_dev": 2
+            }
         },
         {
             "id": 71,
-            "start": { "type": "uniform", "min": 10, "max": 22 },
-            "duration": { "type": "gauss", "mean": 4, "std_dev": 1 },
-            "target": { "type": "uniform", "min_x": 3, "max_x": 5, "min_y": 3, "max_y": 5 },
+            "start": {
+                "type": "uniform",
+                "min": 10,
+                "max": 22
+            },
+            "duration": {
+                "type": "gauss",
+                "mean": 4,
+                "std_dev": 1
+            },
+            "target": {
+                "type": "uniform",
+                "min_x": 3,
+                "max_x": 5,
+                "min_y": 3,
+                "max_y": 5
+            },
             "radius": 2,
-            "count": { "type": "gauss", "mean": 10, "std_dev": 2 }
+            "count": {
+                "type": "gauss",
+                "mean": 10,
+                "std_dev": 2
+            }
         }
     ]
 }
