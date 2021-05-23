@@ -66,6 +66,7 @@ function main() {
     const fname = cmd_line.input_file || path.join(__dirname, "params.moderate.json");
     const output_dir = cmd_line.output_dir || path.join(__dirname, "tmp");
     const expand_factor = +(cmd_line.expand_factor || "10");
+    const use_whole_year = !!(cmd_line.whole_year);
 
     // read input file
     const orig_settings = fs.readFileSync(fname);
@@ -82,7 +83,7 @@ function main() {
 
         // inject empty disruptions
         config.general.from = "2020-01-01T00:00:00.000Z";
-        config.general.to = "2020-03-01T00:00:00.000Z";
+        config.general.to = use_whole_year ? "2021-01-01T00:00:00.000Z" : "2020-03-01T00:00:00.000Z";
         config.disruptions = [];
 
         // save to new file, inject iteration number into filename

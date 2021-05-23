@@ -65,7 +65,16 @@ function perform_evaluation() {
 # run_initial_expansion
 # perform_evaluation
 
-expand_beam
+# expand_beam
+# perform_evaluation
+
+# perform final evaluation on full-year data
+ROOT_DIR2=params/params_parking/candidates
+OUTPUT_DIR=$ROOT_DIR2
+DATA_DIR=$ROOT_DIR2/tmp/data
+RES_FILE=$ROOT_DIR2/tmp/res.txt
+mkdir -p $OUTPUT_DIR
+mkdir -p $DATA_DIR
 perform_evaluation
 
 echo "Finished."
