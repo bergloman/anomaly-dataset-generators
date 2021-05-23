@@ -7,22 +7,39 @@ set -e
 
 GENERATOR="parking"
 NORMALIZE="no"
+EXPANSION_FACTOR_INITIAL=100
+EXPANSION_FACTOR_STANDARD=10
+TIMESTAMP=$(date +%Y-%m-%dT%H-%M-%S)
 
 ROOT_DIR=params/params_parking/source
 
-INPUT_DIR=$ROOT_DIR/tmp/input
-OUTPUT_DIR=$ROOT_DIR/tmp/output
-DATA_DIR=$ROOT_DIR/tmp/data
+TMP_DIR=$ROOT_DIR/tmp
+INPUT_DIR=$TMP_DIR/input
+OUTPUT_DIR=$TMP_DIR/output-$TIMESTAMP
+DATA_DIR=$TMP_DIR/data-$TIMESTAMP
+RES_FILE=$TMP_DIR/res-$TIMESTAMP.txt
 
 mkdir -p $INPUT_DIR
 mkdir -p $OUTPUT_DIR
 mkdir -p $DATA_DIR
 
 # run initial expansion
-node $ROOT_DIR/generator_of_permuted_settings \
-    --input_file $ROOT_DIR/params.moderate.json \
-    --output_dir $OUTPUT_DIR \
-    --expand_factor 2
+function run_initial_expansion() {
+    node $ROOT_DIR/generator_of_permuted_settings \
+        --input_file $ROOT_DIR/params.moderate.json \
+        --output_dir $OUTPUT_DIR \
+        --expand_factor $EXPANSION_FACTOR_INITIAL
+}
+
+function expand_beam() {
+    for FILE in $INPUT_DIR/*.json; do
+        node $ROOT_DIR/generator_of_permuted_settings \
+            --input_file $FILE \
+            --output_dir $OUTPUT_DIR \
+            --expand_factor $EXPANSION_FACTOR_STANDARD
+    done
+}
+
 function perform_evaluation() {
     for FILE in $OUTPUT_DIR/*.json; do
         FILENAME=$(basename -- "$FILE")
@@ -39,17 +56,16 @@ function perform_evaluation() {
             -o $OUT_FILE \
             $NORMALIZE
 
-        # TODO
-        # run python to evaluate the dataset and write the result somewhere
-        python src/validation/export_stats.py $OUT_FILE
+        # run python to evaluate the dataset and write the result
+        echo "$OUT_FILE" >> $RES_FILE
+        python src/validation/export_stats.py $OUT_FILE >> $RES_FILE
     done
-
-    # collect the results and promote top X parameter files
 }
 
+# run_initial_expansion
+# perform_evaluation
+
+expand_beam
 perform_evaluation
-
-
-
 
 echo "Finished."

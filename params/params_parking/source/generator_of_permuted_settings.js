@@ -65,7 +65,7 @@ function main() {
     const cmd_line = pcl.parseCommandLine();
     const fname = cmd_line.input_file || path.join(__dirname, "params.moderate.json");
     const output_dir = cmd_line.output_dir || path.join(__dirname, "tmp");
-    const expand_factor = +(cmd_line.factor || "100");
+    const expand_factor = +(cmd_line.expand_factor || "10");
 
     // read input file
     const orig_settings = fs.readFileSync(fname);
