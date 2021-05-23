@@ -10,19 +10,18 @@ filename=args[1]
 # load data
 df = pd.read_csv(filename)
 
-# show basic info
-print(df.describe())
-print(df.cov())
+# # show basic info
+# print(df.describe())
+# print(df.cov())
 
 # show correlations
-cov = df.cov().to_numpy()
-flattened = cov.flatten()
-print(flattened)
+coors_generated = df.cov().to_numpy().flatten()
+# print(flattened)
 
-df_flattened = pd.DataFrame(data=flattened, index=None, columns=None)
-print(df_flattened.describe())
+# df_flattened = pd.DataFrame(data=flattened, index=None, columns=None)
+# print(df_flattened.describe())
 
-#df_flattened.hist()
+# df_flattened.hist()
 
 # bins = pd.cut(flattened, 10)
 # print(bins)
@@ -43,7 +42,7 @@ coors_real = [
     0.08581968
 ]
 df_real = pd.DataFrame(data=coors_real, index=None, columns=None)
-print(df_real.describe())
+# print(df_real.describe())
 # df = pd.DataFrame(coors_real)
 
 # coors2=[
@@ -57,11 +56,11 @@ print(df_real.describe())
 # 0.01883883, 0.00274649, 0.00228911, -0.00867405, 0.01658216, 0.0182263,
 # 0.01868724
 # ]
-coors2 = flattened
+# coors_generated = flattened
 # df2 = pd.DataFrame(coors2)
 
 
-# Tests
+# Test similarity of real and generated distributions
 
-test_res = ks_2samp(coors_real, coors2)
+test_res = ks_2samp(coors_real, coors_generated)
 print(test_res)

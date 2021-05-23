@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const pcl = require("../../../tools/parse_command_line");
 
 /** Create new distribution parameters within given conditions */
 function createNewSetting(min, max) {
@@ -50,7 +51,8 @@ function permuteConfig(config) {
             case 2: // count
                 profile.count = createNewSetting(10, 100);
                 break;
-            default: break;
+            default:
+                break;
         }
     }
 }
@@ -58,11 +60,23 @@ function permuteConfig(config) {
 ///////////////////////////////////////////////////////////////////////
 
 function main() {
-    const orig_settings = fs.readFileSync(path.join(__dirname, "params.moderate.json"));
 
-    for (let i = 0; i < 100; i++) {
+    // get paranmeters fro command-line
+    const cmd_line = pcl.parseCommandLine();
+    const fname = cmd_line.input_file || path.join(__dirname, "params.moderate.json");
+    const output_dir = cmd_line.output_dir || path.join(__dirname, "tmp");
+    const expand_factor = +(cmd_line.factor || "100");
+
+    // read input file
+    const orig_settings = fs.readFileSync(fname);
+
+    const fname_base = path.basename(fname);
+
+    // perform mutations and store them to output files
+    for (let i = 0; i < expand_factor; i++) {
         // create clean copy
         const config = JSON.parse(orig_settings);
+
         // make mutations
         permuteConfig(config);
 
@@ -71,11 +85,11 @@ function main() {
         config.general.to = "2020-03-01T00:00:00.000Z";
         config.disruptions = [];
 
-        // save to file
+        // save to new file, inject iteration number into filename
+        const output_file = fname_base.replace(".json", "." + i + ".json");
         fs.writeFileSync(
-            path.join(__dirname, "tmp", `params.moderate.${i}.json`),
-            JSON.stringify(config, null, 4),
-            { encoding: "utf8" }
+            path.join(output_dir, output_file),
+            JSON.stringify(config, null, 4), { encoding: "utf8" }
         );
     }
 }
